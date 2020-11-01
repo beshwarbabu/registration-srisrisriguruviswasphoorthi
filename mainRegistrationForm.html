@@ -304,9 +304,9 @@
                         <label for="countrySelection">Country (దేశం) *</label>
                         <select name="country" id="countrySelection" class="custom-select other-check geoLocation"
                             onchange="dropdownCheck('countrySelection');" required>
-                            <option value="0" disabled selected>Choose Option</option>
-                            <option value="India">India</option>
-                            <option value="USA">USA</option>
+                            <option value="null" disabled selected>Choose Option</option>
+                            <option value="in">India</option>
+                            <option value="us">USA</option>
                         </select>
                         <input name="otherCountry" type="text" class="form-control other-check-input"
                             id='countrySelectionOther' placeholder="Please fill" style="display:none;" required>
@@ -316,7 +316,8 @@
                     <div class="form-group col-md-6 col-sm-12">
                         <label for="pin">Postal Code (పిన్ కోడ్) *</label>
                         <input name="postal" id="pin" pattern="\d*" maxlength="6" minlength="6" type="text"
-                            class="form-control" placeholder="Enter Pin" required>
+                            class="form-control" placeholder="Enter Pin" required
+                            onblur="initiateServiceCall(document.getElementById('countrySelection').value,document.getElementById('pin').value)">
                         <div class="invalid-feedback">Please enter your area postal code.</div>
                     </div>
                 </div>
@@ -439,7 +440,11 @@
                         ఎంచుకోండి</div>
                     <div class='invalid-feedback'>Please select a question and enter answer for the same.</div>
                 </div>
-
+                <div class="form-group">
+                    <label for="pin">Enter a PIN * :</label>
+                    <input type="password" name="pin" class="form-control" id="pin" required>
+                    <div class="invalid-feedback">Please enter a PIN.</div>
+                </div>
                 <div class="form-group">
                     <label for="comment">Comments (మీ సలహాలు) :</label>
                     <textarea name="comments" class="form-control" rows="2" id="comment"></textarea>
@@ -482,7 +487,7 @@
 
                 <div class='row tyButton' style="display:none;">
                     <div class="col-sm-12">
-                        <button id="returnButton" class="btn btn-primary  ">Return to the form.</button>
+                        <button id="returnButton" class="btn btn-primary">Return to the form.</button>
                     </div>
                 </div>
             </div><!-- End of form group-->
@@ -496,10 +501,11 @@
     </div>
 
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>-->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
         crossorigin="anonymous"></script>
@@ -994,6 +1000,47 @@
             $(".whatsappCodeError").hide();
         });
 
+
+        function appendAreaOptions(data) {
+            debugger;
+            var arrayOfLocailities = data.results[data.query.codes[0]];
+            $.each(arrayOfLocailities, function (i, value) {
+                console.log("i:" + i + "value:" + value.city);
+                $('#areaSelection').append($('<option>').text(value.city).attr('value', value.city));
+            });
+        }
+        /*API Get Call*/
+        function getServiceCall(serviceUrl) {
+            $.ajax({
+                type: "GET",
+                url: serviceUrl,
+                dataType: "json",
+            }).done(function (data) {
+                console.log("Response: " + JSON.stringify(data));
+                appendAreaOptions(data);
+            }).fail(function () {
+                console.log("Failed");
+            });
+        }
+
+        var apiKey = "b72b0b60-1be2-11eb-927b-576302e93169";
+        var locationAPIDomain = "https://app.zipcodebase.com";
+        var locationAPIPath = "/api/v1/search";
+        var finalURL = locationAPIDomain + locationAPIPath + "?apikey=" + apiKey;
+        var responseData = '{"query":{"codes":["500018"],"country":"in"},"results":{"500018":[{"postal_code":"500018","country_code":"IN","latitude":"17.45230000","longitude":"78.43240000","city":"Vivekananda Nagar Colony","state":"Telangana","state_code":"40","province":"Hyderabad","province_code":"536"},{"postal_code":"500018","country_code":"IN","latitude":"17.38980000","longitude":"78.46990000","city":"Erragadda","state":"Telangana","state_code":"40","province":"Hyderabad","province_code":"536"},{"postal_code":"500018","country_code":"IN","latitude":"17.45230000","longitude":"78.43240000","city":"Sanathnagar I E","state":"Telangana","state_code":"40","province":"Hyderabad","province_code":"536"},{"postal_code":"500018","country_code":"IN","latitude":"17.45230000","longitude":"78.43240000","city":"Fathenagar Colony","state":"Telangana","state_code":"40","province":"K.V.Rangareddy","province_code":"537"},{"postal_code":"500018","country_code":"IN","latitude":"17.45230000","longitude":"78.43240000","city":"Bharat Nagar Colony","state":"Telangana","state_code":"40","province":"K.V.Rangareddy","province_code":"537"},{"postal_code":"500018","country_code":"IN","latitude":"17.45230000","longitude":"78.43240000","city":"Swarajyanagar","state":"Telangana","state_code":"40","province":"K.V.Rangareddy","province_code":"537"},{"postal_code":"500018","country_code":"IN","latitude":"17.45230000","longitude":"78.43240000","city":"Moosapet","state":"Telangana","state_code":"40","province":"K.V.Rangareddy","province_code":"537"}]}}';
+        
+        appendAreaOptions(JSON.parse(responseData));
+        
+        /*on blur function for Postcal Code*/
+        function initiateServiceCall(country, postalCode) {
+            if (country != "null" && postalCode != "") {
+                finalURL = finalURL + "&country=" + country + "&codes=" + postalCode
+                //getServiceCall(finalURL);
+            }
+            else {
+                console.log("ERRORR");
+            }
+        }
 
     </script>
 </body>
