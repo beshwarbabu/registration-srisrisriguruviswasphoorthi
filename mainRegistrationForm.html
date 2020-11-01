@@ -80,6 +80,10 @@
             padding-left: 10px;
         }
 
+        .buttonsSection, #addParticipants {
+            margin-bottom: 20px;
+        }
+
         /*Additional Participants*/
         .additionalPartcipants {
             border: 2px solid #1565C0;
@@ -113,16 +117,41 @@
             display: inline-block;
             margin-bottom: 20px;
         }
+
+        /*Thankyou note & Duplicate info*/
+        .exclaim {
+            margin-top: 6px;
+            margin-left: 5px;
+        }
+
+        .form-group .alert-info {
+            font-size: 20px !important;
+        }
+
+        .namaskaraImage {
+            width: 150px;
+            margin: 0 auto;
+            margin-top: 25px;
+        }
+
+        .thankyouNote .textCenter {
+            color: #fff;
+        }
+
+        .thankyouNote {
+            background-color: #7cdd7c !important;
+        }
     </style>
 </head>
 
 <body>
 
     <div class="mainContainer container initialViewForm" id="initialViewForm">
+        <!--Header Start-->
         <div class="header">
             <img class="card-img-top SSSGVSImg" src="https://srisrisriguruviswasphoorthi.org/images/header.jpg"
                 alt="SriSriSri Guru Viswa Sphoorthi" width="892" height="133">
-
+            <!--Navigation Menu Start-->
             <nav class="navbar navbar-expand-lg navbar-light headerNavigation">
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -170,11 +199,15 @@
                     </ul>
                 </div>
             </nav>
-
+            <!--Navigation Menu End-->
         </div>
+        <!--Header End-->
+
         <br />
-        <div class="mainForm">
-            <form class="mainForm boxForm needs-validation class-was-validated" id="mainRegForm" novalidate>
+
+        <!--Main Registration Form Start-->
+        <div class="mainForm" id="mainRegForm">
+            <form class="mainForm boxForm needs-validation class-was-validated" >
                 <!--Note - Info-->
                 <div class="alert alert-info font25" role="alert">Note:
                     * Required
@@ -200,10 +233,10 @@
                 <div class="form-row">
                     <div class="form-group form-check genderCheck col-sm-6">
                         <label for="radioGenderCheck">Gender * </label><br />
-                        <label class="radio-inline"><input type="radio" name='radioGenderCheck'
-                                value="Male" required><span>Male</span></label>
-                        <label class="radio-inline"><input type="radio" name='radioGenderCheck'
-                                value="Female" required><span>Female</span></label>
+                        <label class="radio-inline"><input type="radio" name='radioGenderCheck' value="Male"
+                                required><span>Male</span></label>
+                        <label class="radio-inline"><input type="radio" name='radioGenderCheck' value="Female"
+                                required><span>Female</span></label>
                         <div class="invalid-feedback">Please select an option.</div>
                     </div>
                     <div class="form-group col-sm-6">
@@ -379,26 +412,31 @@
                     <textarea name="comments" class="form-control" rows="2" id="comment"></textarea>
                 </div>
 
+                <!--Additional Participants Section-->
+                <div class="additionalPSection all  needs-validation" id="additionalPSection"></div>
+
+                <!--Buttons Start-->
+                <div class="buttonsSection">
+                    <button id="addParticipants" class="btn btn-info col-sm-12" type="button">Add Participants</button>
+                    
+                    <div class='submitErrorMsg colorRed   textCenter' style="display:none">Please fill the above
+                        required fields.</div>
+                    <button id="btn" type="submit" name="action" class="btn btn-primary col-sm-12  ">Submit</button>
+                </div>
+                <!--Buttons End-->
+
             </form>
 
+            
 
-
-            <div class="additionalPSection allFont30 needs-validation" id="additionalPSection"></div>
 
 
         </div>
+        <!--Main Registration Form End-->
 
-        <div class="col-sm-12">
-            <button id="addParticipants" class="btn btn-info col-sm-12 font30">Add Participants</button>
-            <p style="visibility:hidden">Hidden Text</p>
-            <div class='submitErrorMsg colorRed font30 textCenter' style="display:none">Please fill the above
-                required fields.</div>
-            <button id="btn" type="submit" name="action" class="btn btn-primary col-sm-12 font30">Submit</button>
-        </div>
-
-
+        <!-- Start of Thank You Note -->
         <div class="mainContainer container thankyouNote" id="thankyouNote" style="display:none">
-            <div class="textCenter font30"><span class="spYellow">SPHOORTHI OUM</span></div>
+            <div class="textCenter  "><span class="spYellow">SPHOORTHI OUM</span></div>
 
             <div class="card form-group marginAuto introSection">
                 <img class="card-img-top namaskaraImage"
@@ -406,7 +444,7 @@
                     alt="Namaskaram Image">
 
                 <div class="card-body">
-                    <div class="card-title font30">ధన్యవాదాలు.. మీ రిజిస్ట్రేషన్ పూర్తయింది.<br> ఈ కార్యక్రమ వివరాలు
+                    <div class="card-title  ">ధన్యవాదాలు.. మీ రిజిస్ట్రేషన్ పూర్తయింది.<br> ఈ కార్యక్రమ వివరాలు
                         త్వరలో
                         మీకు తెలియజేస్తాము.<br><br>
                         Thank you.. You have completed registration.<br> We shall communicate to you the event details
@@ -416,7 +454,7 @@
 
                 <div class='row tyButton' style="display:none;">
                     <div class="col-sm-12">
-                        <button id="returnButton" class="btn btn-primary font30">Return to the form.</button>
+                        <button id="returnButton" class="btn btn-primary  ">Return to the form.</button>
                     </div>
                 </div>
             </div><!-- End of form group-->
@@ -442,7 +480,7 @@
         crossorigin="anonymous"></script>
 
     <script>
-        var additionPHTML = "<section class='additionalPartcipants class-was-validated' id='additionalP'><div class='addPHeading'><div class='levelAdditionalParticipants font30'>Additional Participants</div><div class='font30 removeSection'>Remove this participant</div></div><div class='form-row'><div class='form-group col-md-6 col-sm-12'><label for='addFamilyName'>Surname/Family name (ఇంటి పేరు) *</label><input type='text' class='form-control' name='addPSurName' id='addFamilyName' placeholder='Enter Surname' required><div class='invalid-feedback'>Please enter your surname or family name.</div></div><div class='form-group col-md-6 col-sm-12'><label for='addPName'>Name (పేరు) *</label><input type='text' class='form-control' name='addPName' id='addName' placeholder='Enter Name' required><div class='invalid-feedback'>Please enter your name.</div></div></div><div class='form-row'><div class='form-group form-check addPRadioGenderCheck col-md-6 col-sm-12'><label for='addPRadioGenderCheck'>Gender * </label><br /><label class='radio-inline'><input type='radio' name='addPRadioGenderCheck' value='Male' required><span>Male</span></label><label class='radio-inline'><input type='radio' name='addPRadioGenderCheck' value='Female' required><span>Female</span></label><div class='invalid-feedback'>Please select an option.</div></div><div class='form-group col-md-6 col-sm-12'><label for='addPAgeCheck'>Age (వయసు) *</label><input name='addPAgeCheck' id='addPAgeCheck' type='text' pattern='\\d*' class='form-control' placeholder='Enter Age' min='0' maxlength='3' required><div class='invalid-feedback'>Please enter your age.</div></div></div><div class='form-group addPCareTaker'><label for='addPCareTakerSel'>Father/Mother/Husband 's Full Name (తండ్రి / తల్లి / భర్త పూర్తి పేరు) *</label><div class='input-group mb-3'><div class='input-group-prepend mobileW100Perc'><select name='addPCareTakerSel' id='addPCareTakerSel' class='custom-select' required='Plese select an option'><option value='' disabled='' selected=''>Choose Option</option><option value='daughterOf'>D/o</option><option value='sonOf'>S/o</option><option value='wifeOf'>W/o</option> </select></div><input type='text' class='form-control' aria-label='Text input with dropdown button' name='addPfhName' id='addPCareTakerName' placeholder='Enter Name' required><div class='invalid-feedback addPCareTakerSelError'>Please select an option. <br>దయచేసి ఒక ఎంపికను ఎంచుకోండి</div><div class='invalid-feedback'>Please enter your father/mother/husband name.<br>మీ తండ్రి / తల్లి /భర్త పేరు వ్రాయగలరు.</div></div></div><div class='form-row'><div class='form-group mobileCodeNum col-md-6 col-sm-12'><label for='addp_calling_code'>Mobile (మొబైల్) *</label><div class='input-group mb-3'><div class='input-group-prepend w25perc'><select name='addPCallingCode' id='addp_calling_code' class='custom-select optional'> </select></div><input id='addp_icon_telephone' name='addPTelephone' pattern='\\d*' maxlength='15' type='text' minlength='5' class='form-control' aria-label='Number input with dropdown button' placeholder='Enter Mobile Number' required><div class='invalid-feedback mobileCountryCodeError'>Please select country code for the above number.</div><div class='invalid-feedback'>Please enter your mobile number.</div></div></div><div class='form-group alternateCodeNum col-md-6 col-sm-12'> <label for='alternateNum'>Alternate Phone Number (ఇతర ఫోన్ నెంబర్)</label><div class='input-group mb-3'><div class='input-group-prepend w25perc'> <select name='alternateCountryCode' id='alternateCountryCode' class='custom-select optional'> </select></div> <input name='alternateNum' id='alternateNum' pattern='\\d*' maxlength='15' minlength='5' type='text' class='form-control optional' aria-label='Number input with dropdown button' placeholder='Enter Alternate Number'><div class='invalid-feedback alternateCountryCodeError'>Please select country code for the above number.</div><div class='invalid-feedback'>Please enter your alternate mobile number.</div></div></div></div><div class='form-row'><div class='form-group whatsappCodeNum col-md-6 col-sm-12'> <label for='whatsappNum'>WhatsApp Number (వాట్సాప్ నెంబర్)</label><div class='input-group mb-3'><div class='input-group-prepend w25perc'> <select name='whatsappCountryCode' id='whatsappCountryCode' class='custom-select optional'> </select></div> <input name='whatsappNum' id='whatsappNum' pattern='\\d*' maxlength='15' minlength='5' type='text' class='form-control optional' aria-label='Number input with dropdown button' placeholder='Enter WhatsApp Number'><div class='invalid-feedback whatsappCountryCodeError'>Please select country code for the above number.</div><div class='invalid-feedback'>Please enter your WhatsApp number.</div></div></div><div class='form-group col-md-6 col-sm-12'><label for='addp_icon_mail'>E-Mail (ఈ-మెయిల్)</label><input id='addp_icon_mail' name='addPEmail' type='email' class='form-control optional' placeholder='email@example.com'></div></div><div class='form-group form-check prevCheck'><div>Have you attended Guruji's programs earlier? *<br>ఇంతకుముందు మీరు గురువుగారి కార్యక్రమాల్లో పాల్గొన్నారా?<br></div><label class='radio-inline'><input type='radio' name='existing' value='Yes'><span value='Yes'>Yes</span></label><label class='radio-inline'><input type='radio' name='existing' value='No'><span value='No'>No</span></label><div class='invalid-feedback'>Please select an option.</div></div> </section>";
+        var additionPHTML = "<section class='additionalPartcipants class-was-validated' id='additionalP'><div class='addPHeading'><div class='levelAdditionalParticipants  '>Additional Participants</div><div class='  removeSection'>Remove this participant</div></div><div class='form-row'><div class='form-group col-md-6 col-sm-12'><label for='addFamilyName'>Surname/Family name (ఇంటి పేరు) *</label><input type='text' class='form-control' name='addPSurName' id='addFamilyName' placeholder='Enter Surname' required><div class='invalid-feedback'>Please enter your surname or family name.</div></div><div class='form-group col-md-6 col-sm-12'><label for='addPName'>Name (పేరు) *</label><input type='text' class='form-control' name='addPName' id='addName' placeholder='Enter Name' required><div class='invalid-feedback'>Please enter your name.</div></div></div><div class='form-row'><div class='form-group form-check addPRadioGenderCheck col-md-6 col-sm-12'><label for='addPRadioGenderCheck'>Gender * </label><br /><label class='radio-inline'><input type='radio' name='addPRadioGenderCheck' value='Male' required><span>Male</span></label><label class='radio-inline'><input type='radio' name='addPRadioGenderCheck' value='Female' required><span>Female</span></label><div class='invalid-feedback'>Please select an option.</div></div><div class='form-group col-md-6 col-sm-12'><label for='addPAgeCheck'>Age (వయసు) *</label><input name='addPAgeCheck' id='addPAgeCheck' type='text' pattern='\\d*' class='form-control' placeholder='Enter Age' min='0' maxlength='3' required><div class='invalid-feedback'>Please enter your age.</div></div></div><div class='form-group addPCareTaker'><label for='addPCareTakerSel'>Father/Mother/Husband 's Full Name (తండ్రి / తల్లి / భర్త పూర్తి పేరు) *</label><div class='input-group mb-3'><div class='input-group-prepend mobileW100Perc'><select name='addPCareTakerSel' id='addPCareTakerSel' class='custom-select' required='Plese select an option'><option value='' disabled='' selected=''>Choose Option</option><option value='daughterOf'>D/o</option><option value='sonOf'>S/o</option><option value='wifeOf'>W/o</option> </select></div><input type='text' class='form-control' aria-label='Text input with dropdown button' name='addPfhName' id='addPCareTakerName' placeholder='Enter Name' required><div class='invalid-feedback addPCareTakerSelError'>Please select an option. <br>దయచేసి ఒక ఎంపికను ఎంచుకోండి</div><div class='invalid-feedback'>Please enter your father/mother/husband name.<br>మీ తండ్రి / తల్లి /భర్త పేరు వ్రాయగలరు.</div></div></div><div class='form-row'><div class='form-group mobileCodeNum col-md-6 col-sm-12'><label for='addp_calling_code'>Mobile (మొబైల్) *</label><div class='input-group mb-3'><div class='input-group-prepend w25perc'><select name='addPCallingCode' id='addp_calling_code' class='custom-select optional'> </select></div><input id='addp_icon_telephone' name='addPTelephone' pattern='\\d*' maxlength='15' type='text' minlength='5' class='form-control' aria-label='Number input with dropdown button' placeholder='Enter Mobile Number' required><div class='invalid-feedback mobileCountryCodeError'>Please select country code for the above number.</div><div class='invalid-feedback'>Please enter your mobile number.</div></div></div><div class='form-group alternateCodeNum col-md-6 col-sm-12'> <label for='alternateNum'>Alternate Phone Number (ఇతర ఫోన్ నెంబర్)</label><div class='input-group mb-3'><div class='input-group-prepend w25perc'> <select name='alternateCountryCode' id='alternateCountryCode' class='custom-select optional'> </select></div> <input name='alternateNum' id='alternateNum' pattern='\\d*' maxlength='15' minlength='5' type='text' class='form-control optional' aria-label='Number input with dropdown button' placeholder='Enter Alternate Number'><div class='invalid-feedback alternateCountryCodeError'>Please select country code for the above number.</div><div class='invalid-feedback'>Please enter your alternate mobile number.</div></div></div></div><div class='form-row'><div class='form-group whatsappCodeNum col-md-6 col-sm-12'> <label for='whatsappNum'>WhatsApp Number (వాట్సాప్ నెంబర్)</label><div class='input-group mb-3'><div class='input-group-prepend w25perc'> <select name='whatsappCountryCode' id='whatsappCountryCode' class='custom-select optional'> </select></div> <input name='whatsappNum' id='whatsappNum' pattern='\\d*' maxlength='15' minlength='5' type='text' class='form-control optional' aria-label='Number input with dropdown button' placeholder='Enter WhatsApp Number'><div class='invalid-feedback whatsappCountryCodeError'>Please select country code for the above number.</div><div class='invalid-feedback'>Please enter your WhatsApp number.</div></div></div><div class='form-group col-md-6 col-sm-12'><label for='addp_icon_mail'>E-Mail (ఈ-మెయిల్)</label><input id='addp_icon_mail' name='addPEmail' type='email' class='form-control optional' placeholder='email@example.com'></div></div><div class='form-group form-check prevCheck'><div>Have you attended Guruji's programs earlier? *<br>ఇంతకుముందు మీరు గురువుగారి కార్యక్రమాల్లో పాల్గొన్నారా?<br></div><label class='radio-inline'><input type='radio' name='existing' value='Yes'><span value='Yes'>Yes</span></label><label class='radio-inline'><input type='radio' name='existing' value='No'><span value='No'>No</span></label><div class='invalid-feedback'>Please select an option.</div></div> </section>";
 
         var countryNames = "{'status':'OK','status-code':200,'version':'1.0','total':251,'limit':100,'offset':0,'access':'public','data':{'DZ':{'country':'Algeria','region':'Africa'},'AO':{'country':'Angola','region':'Africa'},'BJ':{'country':'Benin','region':'Africa'},'BW':{'country':'Botswana','region':'Africa'},'BF':{'country':'Burkina Faso','region':'Africa'},'BI':{'country':'Burundi','region':'Africa'},'CV':{'country':'Cabo Verde','region':'Africa'},'CM':{'country':'Cameroon','region':'Africa'},'CF':{'country':'Central African Republic (the)','region':'Africa'},'TD':{'country':'Chad','region':'Africa'},'KM':{'country':'Comoros ','region':'Africa'},'CD':{'country':'Congo (the Democratic Republic of the)','region':'Africa'},'CG':{'country':'Congo (the)','region':'Africa'},'CI':{'country':'Côte d'Ivoire','region':'Africa'},'DJ':{'country':'Djibouti','region':'Africa'},'EG':{'country':'Egypt','region':'Africa'},'GQ':{'country':'Equatorial Guinea','region':'Africa'},'ER':{'country':'Eritrea','region':'Africa'},'ET':{'country':'Ethiopia','region':'Africa'},'GA':{'country':'Gabon','region':'Africa'},'GM':{'country':'Gambia ','region':'Africa'},'GH':{'country':'Ghana','region':'Africa'},'GN':{'country':'Guinea','region':'Africa'},'GW':{'country':'Guinea-Bissau','region':'Africa'},'KE':{'country':'Kenya','region':'Africa'},'LS':{'country':'Lesotho','region':'Africa'},'LR':{'country':'Liberia','region':'Africa'},'LY':{'country':'Libya','region':'Africa'},'MG':{'country':'Madagascar','region':'Africa'},'MW':{'country':'Malawi','region':'Africa'},'ML':{'country':'Mali','region':'Africa'},'MR':{'country':'Mauritania','region':'Africa'},'MU':{'country':'Mauritius','region':'Africa'},'YT':{'country':'Mayotte','region':'Africa'},'MA':{'country':'Morocco','region':'Africa'},'MZ':{'country':'Mozambique','region':'Africa'},'NA':{'country':'Namibia','region':'Africa'},'NE':{'country':'Niger (the)','region':'Africa'},'NG':{'country':'Nigeria','region':'Africa'},'RE':{'country':'Réunion','region':'Africa'},'RW':{'country':'Rwanda','region':'Africa'},'SH':{'country':'Saint Helena, Ascension and Tristan da Cunha','region':'Africa'},'ST':{'country':'Sao Tome and Principe','region':'Africa'},'SN':{'country':'Senegal','region':'Africa'},'SC':{'country':'Seychelles','region':'Africa'},'SL':{'country':'Sierra Leone','region':'Africa'},'SO':{'country':'Somalia','region':'Africa'},'ZA':{'country':'South Africa','region':'Africa'},'SS':{'country':'South Sudan','region':'Africa'},'SD':{'country':'Sudan ','region':'Africa'},'SZ':{'country':'Swaziland','region':'Africa'},'TZ':{'country':'Tanzania, United Republic of','region':'Africa'},'TG':{'country':'Togo','region':'Africa'},'TN':{'country':'Tunisia','region':'Africa'},'UG':{'country':'Uganda','region':'Africa'},'EH':{'country':'Western Sahara*','region':'Africa'},'ZM':{'country':'Zambia','region':'Africa'},'ZW':{'country':'Zimbabwe','region':'Africa'},'AQ':{'country':'Antarctica','region':'Antarctic'},'BV':{'country':'Bouvet Island','region':'Antarctic'},'TF':{'country':'French Southern Territories (the)','region':'Antarctic'},'HM':{'country':'Heard Island and McDonald Islands','region':'Antarctic'},'GS':{'country':'South Georgia and the South Sandwich Islands','region':'Antarctic'},'AF':{'country':'Afghanistan','region':'Asia'},'AM':{'country':'Armenia','region':'Asia'},'AZ':{'country':'Azerbaijan','region':'Asia'},'BD':{'country':'Bangladesh','region':'Asia'},'BT':{'country':'Bhutan','region':'Asia'},'IO':{'country':'British Indian Ocean Territory (the)','region':'Asia'},'BN':{'country':'Brunei Darussalam','region':'Asia'},'KH':{'country':'Cambodia','region':'Asia'},'CN':{'country':'China','region':'Asia'},'GE':{'country':'Georgia','region':'Asia'},'HK':{'country':'Hong Kong','region':'Asia'},'IN':{'country':'India','region':'Asia'},'ID':{'country':'Indonesia','region':'Asia'},'JP':{'country':'Japan','region':'Asia'},'KZ':{'country':'Kazakhstan','region':'Asia'},'KP':{'country':'Korea (the Democratic People's Republic of)','region':'Asia'},'KR':{'country':'Korea (the Republic of)','region':'Asia'},'KG':{'country':'Kyrgyzstan','region':'Asia'},'LA':{'country':'Lao People's Democratic Republic (the)','region':'Asia'},'MO':{'country':'Macao','region':'Asia'},'MY':{'country':'Malaysia','region':'Asia'},'MV':{'country':'Maldives','region':'Asia'},'MN':{'country':'Mongolia','region':'Asia'},'MM':{'country':'Myanmar','region':'Asia'},'NP':{'country':'Nepal','region':'Asia'},'PK':{'country':'Pakistan','region':'Asia'},'PH':{'country':'Philippines (the)','region':'Asia'},'SG':{'country':'Singapore','region':'Asia'},'LK':{'country':'Sri Lanka','region':'Asia'},'TW':{'country':'Taiwan (Province of China)','region':'Asia'},'TJ':{'country':'Tajikistan','region':'Asia'},'TH':{'country':'Thailand','region':'Asia'},'TL':{'country':'Timor-Leste','region':'Asia'},'TM':{'country':'Turkmenistan','region':'Asia'},'UZ':{'country':'Uzbekistan','region':'Asia'},'VN':{'country':'Vietnam','region':'Asia'},'BZ':{'country':'Belize','region':'Central America'}}}"
         var spDetails = {};
