@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SSSGVS</title>
+    <base target="_top">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <style>
+        /*Commonstyle*/
+        .fRight {
+            float: right;
+        }
+
+        .clearBoth {
+            clear: both;
+        }
+
+        .marginAuto {
+            margin: 0 auto;
+        }
+
+        .backGRed {
+            background-color: red;
+        }
+
+        .colorRed {
+            color: red;
+        }
+
+        .colorBlack {
+            color: #000;
+        }
+
+        .rsvpMainSection {
+            margin: 20px 0;
+            border: 2px solid #d4d4d4;
+            padding: 20px 0;
+        }
+
+        /*template Styles*/
+        body {
+            background: #ffecaa;
+        }
+
+        .mainContainer {
+            max-width: 945px;
+        }
+
+        @media only screen and (min-width: 992px) {
+
+            .headerNavigation,
+            .headerNavigation .nav-link {
+                height: 37px;
+                background-color: #c81c0e;
+            }
+        }
+
+        @media only screen and (max-width: 991px) {
+
+            .headerNavigation,
+            .headerNavigation .nav-link {
+                padding: 10px;
+            }
+        }
+
+        .headerNavigation .dropdown-menu,
+        .headerNavigation ul {
+            background-color: #c81c0e;
+        }
+
+        .headerNavigation .nav-link,
+        .headerNavigation .dropdown-menu a {
+            color: #fff !important;
+            font-weight: 700;
+            font-family: Verdana;
+            font-size: 12px;
+        }
+
+        .headerNavigation .nav-link:hover,
+        .headerNavigation a:hover {
+            color: #000 !important;
+        }
+
+        .headerNavigation a.dropdown-item:hover {
+            background-color: orange;
+        }
+
+        .headerNavigation .nav-item {
+            border-right: 2px solid #9c3232 !important;
+        }
+
+        .headerNavigation .nav-item:last-child {
+            border: none !important;
+        }
+
+
+        /* Form styles */
+        label.radio-inline+label.radio-inline {
+            padding-left: 10px;
+        }
+
+        label.radio-inline span {
+            padding-left: 10px;
+        }
+
+        .buttonsSection,
+        #addParticipants {
+            margin-bottom: 20px;
+        }
+
+        /*Additional Participants*/
+        .additionalPartcipants {
+            border: 2px solid #1565C0;
+            border-radius: 5px;
+            padding: 15px;
+        }
+
+        .additionalPartcipants {
+            margin-bottom: 20px;
+        }
+
+        .removeSection {
+            float: right;
+            color: #000;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .removeSection .material-icons {
+            position: relative;
+            top: 4px;
+        }
+
+        .was-validated .optional:valid,
+        .was-validated .optional:invalid {
+            background-image: none;
+            border-color: inherit;
+        }
+
+        .addPHeading div {
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        /*Thankyou note & Duplicate info*/
+        .exclaim {
+            margin-top: 6px;
+            margin-left: 5px;
+        }
+
+        .form-group .alert-info {
+            font-size: 20px !important;
+        }
+
+        .namaskaraImage {
+            width: 150px;
+            margin: 0 auto;
+            margin-top: 25px;
+        }
+
+        .thankyouNote .textCenter {
+            color: #fff;
+        }
+
+        .thankyouNote {
+            background-color: #7cdd7c !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="mainContainer container">
+        <!--Header Start-->
+        <div class="header">
+            <img class="card-img-top SSSGVSImg" src="https://srisrisriguruviswasphoorthi.org/images/header.jpg"
+                alt="SriSriSri Guru Viswa Sphoorthi" width="892" height="133">
+            <!--Navigation Menu Start-->
+            <nav class="navbar navbar-expand-lg navbar-light headerNavigation">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">The Scientific Sanit</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Dhyana Mano Prasthan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Jana Prasthan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Activities</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Divyakunj</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Live</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Experiences</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Gallery
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Photo Gallery</a>
+                                <a class="dropdown-item" href="#">Video Gallery</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!--Navigation Menu End-->
+        </div>
+        <!--Header End-->
+
+        <br />
+
+        <div class="rsvpSection">
+            <h1>EVENT RSVP Form</h1>
+            <img class="card-img-top SSSGVSImg"
+                src="https://srisrisriguruviswasphoorthi.org/gallery/Celebrations/Birthday%20Celebrations%202015/3638.jpg"
+                alt="SriSriSri Guru Viswa Sphoorthi">
+
+            <div class="col-sm-12 rsvpMainSection">
+
+                <form id="rsvpForm" class="col-md-6 col-sm-12">
+
+                    <div class="form-group">
+                        <label for="familyname">Member Id: </label>
+                        <input type="text" class="form-control" name="famName" id="familyname"
+                            placeholder="Enter Member Id" required>
+                        <div class="invalid-feedback">Please enter your surname or family name. <br> మీ ఇంటి పేరు
+                            వ్రాయగలరు.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="pin">Enter a PIN :</label>
+                        <input type="password" name="pin" class="form-control" id="pin" required>
+                        <div class="invalid-feedback">Please enter a PIN.</div>
+                    </div>
+
+                </form>
+
+                <div class="registrationSection col-md-6 col-sm-12">
+                    <p>If it is your first time registering with us, please use the below registration link.</p>
+                    <a href="#">Member/Event Registration</a>
+
+                </div>
+
+                <hr />
+
+                <div class="results">
+                    <table class="resultsTable table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col" colspan="2">#</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Phone Number</th>
+                                <th>Update the Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td><input type="checkbox" class="form-check-input" id="exampleCheck1"></td>
+                                <td>Name1</td>
+                                <td>Surname1</td>
+                                <td>12312312345</td>
+                                <td><button type="button">Update</button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td><input type="checkbox" class="form-check-input" id="exampleCheck1"></td>
+                                <td>Name2</td>
+                                <td>Surname2</td>
+                                <td>12312312345</td>
+                                <td><button type="button">Update</button></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td><input type="checkbox" class="form-check-input" id="exampleCheck1"></td>
+                                <td>Name3</td>
+                                <td>Surname3</td>
+                                <td>12312312345</td>
+                                <td><button type="button">Update</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                   
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS-->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
