@@ -15,6 +15,10 @@
 
     <style>
         /*Commonstyle*/
+        .textCenter {
+            text-align: center;
+        }
+
         .fRight {
             float: right;
         }
@@ -25,6 +29,10 @@
 
         .marginAuto {
             margin: 0 auto;
+        }
+
+        .mTop20 {
+            margin-top: 20px;
         }
 
         .backGRed {
@@ -308,9 +316,6 @@
                             <option value="in">India</option>
                             <option value="us">USA</option>
                         </select>
-                        <input name="otherCountry" type="text" class="form-control other-check-input"
-                            id='countrySelectionOther' placeholder="Please fill" style="display:none;" required>
-
                         <div class="invalid-feedback">Please select a country.</div>
                     </div>
                     <div class="form-group col-md-6 col-sm-12">
@@ -455,11 +460,13 @@
 
             <!--Buttons Start-->
             <div class="buttonsSection">
-                <button id="addParticipants" class="btn btn-info col-sm-12" type="button">Add Participants</button>
+                <label>If you want to add more participants please click: &nbsp; </label><button id="addParticipants"
+                    class="btn btn-outline-info mTop20" type="button">Add More Participants</button>
 
                 <div class='submitErrorMsg colorRed   textCenter' style="display:none">Please fill the above
                     required fields.</div>
-                <button id="btn" type="submit" name="action" class="btn btn-primary col-sm-12  ">Submit</button>
+                <button id="btn" type="submit" name="action" class="btn btn-primary col-sm-12 mTop20">Submit
+                    Registration</button>
             </div>
             <!--Buttons End-->
 
@@ -520,7 +527,7 @@
         var spDetails = {};
         var spUserLocation = {};
         var completeData = [];
-        var areaSelected ;
+        var areaSelected;
         var arrayOfLocailities = [];
 
         var countryCallingCode = "<option value='0' disabled selected>Choose Option</option><option value='code1'>CODE1</option><option value='code2'>CODE2</option>";
@@ -628,6 +635,7 @@
             if ($(".invalid-feedback").is(":visible")) {
                 readyToSubmit = false;
             }
+            debugger;
             var genderCheck = $('#mainRegForm .genderCheck input:radio:checked').val();
             console.log("radio Gender: " + genderCheck);
             console.log(genderCheck === "Male" || genderCheck === "Female");
@@ -690,12 +698,7 @@
             }
 
             formObj.radioGenderCheck = $('#mainRegForm .genderCheck input:radio:checked').val();
-            /*formObj.country = formObj.country == "Others" ? "Others/" + formObj.otherCountry : formObj.country;
-            formObj.state = formObj.state == "Others" ? "Others/" + formObj.otherState : formObj.state;
-            formObj.district = formObj.district == "Others" ? "Others/" + formObj.otherDistrict : formObj.district;
-            formObj.mandal = formObj.mandal == "Others" ? "Others/" + formObj.otherMandal : formObj.mandal;
-            formObj.city = formObj.city == "Others" ? "Others/" + formObj.otherCity : formObj.city;
-            */
+
             formObj.existing = $('#mainRegForm .prevCheck input:radio:checked').val();
 
             console.log("after formObj: " + JSON.stringify(formObj));
@@ -713,7 +716,7 @@
             completeData.push(formObj);
             var addPArrayObj = [];
             $("div.additionalPSection section.additionalPartcipants").each(function () {
-                
+
                 var addFormObj = {};
                 var thisIdInputs = "#" + this.id + " :input";
                 var thisAddPStr = $(this).attr("addp");
@@ -728,7 +731,7 @@
                 $additionalPInputs.each(function () { addFormObj[this.name] = $(this).val(); });
 
                 addFormObj.addPRadioSexCheck = $('#' + this.id + ' .addPRadioGenderCheck input:radio:checked').val();
-                //console.log($('#'+this.id +' .addPRadioGenderCheck input:radio:checked'));
+                console.log("addFormObj.addPRadioSexCheck" + addFormObj.addPRadioSexCheck);
                 addFormObj.existing = $('#' + this.id + ' .prevCheck input:radio:checked').val();
                 //console.log("Existing"+addFormObj.existing);
                 //console.log($('#'+this.id +' .prevCheck input:radio:checked').val());
@@ -771,7 +774,7 @@
                     readyToSubmit = false;
                 }
 
-               // console.log("Additiona Participant Obj: " + JSON.stringify(addFormObj));
+                // console.log("Additiona Participant Obj: " + JSON.stringify(addFormObj));
 
                 var existingCheck = "existing" + thisAddPStr;
                 delete addFormObj[existingCheck];
@@ -793,8 +796,8 @@
 
                 //completeData.push(addFormObj);
                 addPArrayObj.push(addFormObj);
-                console.log("AddP Array Obj"+JSON.stringify(addPArrayObj));
-                
+                console.log("AddP Array Obj" + JSON.stringify(addPArrayObj));
+
 
             });
 
@@ -805,8 +808,12 @@
 
             console.log("readyToSubmit" + readyToSubmit);
 
+            if ($(".invalid-feedback").is(":visible")) {
+                readyToSubmit = false;
+            }
+
             //showThankyouMessage();
-            if (readyToSubmit && !isDuplicate) {
+            if (readyToSubmit) {
                 console.log("Submit ready");
                 $(".submitErrorMsg").hide();
                 showThankYouMessage();
@@ -843,6 +850,10 @@
             var addPStr = additionalPCount.toString();
 
             var addPLastSectionId = addPLastSection.attr("id", "additionalP" + addPStr);
+
+            $('html, body').animate({
+                scrollTop: $("#additionalP" + addPStr).offset().top
+            }, 500);
 
             var addPLastSectionInput = $("div.additionalPSection section.additionalPartcipants:last-child input");
             var addPLastSectionLabel = $("div.additionalPSection section.additionalPartcipants:last-child label");
@@ -955,7 +966,7 @@
             });
         }
 
-        
+
         /*API Get Call*/
         function getServiceCall(serviceUrl) {
             $.ajax({
@@ -989,10 +1000,9 @@
 
         //Select options onchange
         $('select#areaSelection').on('change', function () {
-            console.log("areaSelection"+JSON.stringify(arrayOfLocailities[this.value]));
+            console.log("areaSelection" + JSON.stringify(arrayOfLocailities[this.value]));
 
         });
-
     </script>
 </body>
 
