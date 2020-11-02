@@ -260,10 +260,13 @@
                         <input type="password" name="pin" class="form-control" id="pin" required>
                         <div class="invalid-feedback">Please enter a PIN.</div>
                     </div>
-
                 </form>
 
-                <div class="registrationSection col-md-6 col-sm-12">
+                <div class="results col-sm-12">
+                    <button type="submit" class="btn btn-outline-primary col-sm-4">Submit the above selection</button>
+                </div>
+<br/>
+                <div class="registrationSection col-md-5 col-sm-12">
                     <p>If it is your first time registering with us, please use the below registration link.</p>
                     <a href="#">Member/Event Registration</a>
 
@@ -279,7 +282,8 @@
                                 <th scope="col">First Name</th>
                                 <th scope="col">Last Name</th>
                                 <th scope="col">Phone Number</th>
-                                <th>Update the Details</th>
+                                <th scope="col">Host Location</th>
+                                <th scope="col">Update the Details</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -289,7 +293,15 @@
                                 <td>Name1</td>
                                 <td>Surname1</td>
                                 <td>12312312345</td>
-                                <td><button type="button">Update</button></td>
+                                <td>
+                                    <select name="hostLocationSelection" id="hostLocationSelection"
+                                        class="custom-select" required>
+                                        <option value="null" disabled selected>Choose an Option</option>
+                                        <option value="HL200001">India</option>
+                                        <option value="HL200002">USA</option>
+                                    </select>
+                                </td>
+                                <td><button type="button" class="btn btn-secondary">Update this row</button></td>
                             </tr>
                             <tr>
                                 <th scope="row">2</th>
@@ -297,7 +309,15 @@
                                 <td>Name2</td>
                                 <td>Surname2</td>
                                 <td>12312312345</td>
-                                <td><button type="button">Update</button></td>
+                                <td>
+                                    <select name="hostLocationSelection" id="hostLocationSelection"
+                                        class="custom-select" required>
+                                        <option value="null" disabled selected>Choose an Option</option>
+                                        <option value="HL200001">India</option>
+                                        <option value="HL200002">USA</option>
+                                    </select>
+                                </td>
+                                <td><button type="button" class="btn btn-secondary">Update this row</button></td>
                             </tr>
                             <tr>
                                 <th scope="row">3</th>
@@ -305,12 +325,22 @@
                                 <td>Name3</td>
                                 <td>Surname3</td>
                                 <td>12312312345</td>
-                                <td><button type="button">Update</button></td>
+                                <td>
+                                    <select name="hostLocationSelection" id="hostLocationSelection"
+                                        class="custom-select" required>
+                                        <option value="null" disabled selected>Choose an Option</option>
+                                        <option value="HL200001">India</option>
+                                        <option value="HL200002">USA</option>
+                                    </select>
+                                </td>
+                                <td><button type="button" class="btn btn-secondary">Update this row</button></td>
                             </tr>
                         </tbody>
                     </table>
-                   
-                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                    <div class="results col-sm-12">
+                        <button type="submit" class="btn btn-primary col-sm-4">Submit the above selection</button>
+                    </div>
                 </div>
             </div>
 
