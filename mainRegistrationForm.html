@@ -326,8 +326,7 @@
 
                 <div class="form-group ">
                     <label for="areaSelection">Area (ప్రాంతం) *</label>
-                    <select name="area" id="areaSelection" class="custom-select other-check geoLocation"
-                        onchange="dropdownCheck('areaSelection');" required>
+                    <select name="area" id="areaSelection" class="custom-select other-check geoLocation" required>
                         <option value="0" disabled selected>Choose Option</option>
                         <option value="AREA1">AREA1</option>
                         <option value="AREA2">AREA2</option>
@@ -521,44 +520,15 @@
         var spDetails = {};
         var spUserLocation = {};
         var completeData = [];
-        /*JavaScript*/
+        var areaSelected ;
+        var arrayOfLocailities = [];
 
-        /*  ## Script added by Panigrahi */
-        //var temp = document.getElementById("temp").innerHTML;
-
-        // var countryCallingCode = document.getElementById("callingCountryCodeOptions").innerHTML;
         var countryCallingCode = "<option value='0' disabled selected>Choose Option</option><option value='code1'>CODE1</option><option value='code2'>CODE2</option>";
-        //var test = temp.split(",");
         var MyTestData1 = [];
-        //var simple1 = [test[0], test[1], test[2], test[3], test[4]];
-        // var simple2 = [test[5], test[6], test[7], test[8], test[9]];
-        // var simpledata = [simple1, simple2];
 
-        /*var LOFN = document.getElementById("LOFN").innerHTML;
-        var LOLN = document.getElementById("LOLN").innerHTML;
-        var LORN = document.getElementById("LORN").innerHTML;
-        var LOPN = document.getElementById("LOPN").innerHTML;
-        var FNamesList = LOFN.split(",");
-        var LNamesList = LOLN.split(",");
-        var RelNamesList = LORN.split(",");
-        var CellNumbersList = LOPN.split(",");
-        */
         var DuplicateNames = [];
         var isDuplicate = false;
 
-        /*for (var i = 10; i < test.length - 5; i = i + 5) {
-            MyTestData1 = [test[i], test[i + 1], test[i + 2], test[i + 3], test[i + 4]];
-            simpledata.push(MyTestData1);
-        }
-    
-        function validateDuplicates(fname, lname, cellno) {
-            for (var i = 0; i < FNamesList.length; i++) {
-                if (CellNumbersList[i] == cellno && lname.toUpperCase() == LNamesList[i].toUpperCase() && FNamesList[i].toUpperCase() == fname.toUpperCase()) {
-                    return true;
-                }
-            }
-            return false;
-        }*/
 
         function makeDropDown(data, levelFilter, i, id, j) {
             const filteredArray = data.filter(r => r[i] === levelFilter);
@@ -700,7 +670,7 @@
             // get an associative array of just the values.
             //var values = {};
             $inputs.each(function () { formObj[this.name] = $(this).val(); });
-            console.log("b4 formObj: " + JSON.stringify(formObj));
+            //console.log("b4 formObj: " + JSON.stringify(formObj));
 
             if (formObj.fhSelection == null) {
                 $(".fhSelectionError").show();
@@ -741,13 +711,14 @@
             // End - code ended by Panigrahi
 
             completeData.push(formObj);
+            var addPArrayObj = [];
             $("div.additionalPSection section.additionalPartcipants").each(function () {
-
+                
                 var addFormObj = {};
                 var thisIdInputs = "#" + this.id + " :input";
                 var thisAddPStr = $(this).attr("addp");
-                console.log("thisAddPStr val: " + thisAddPStr);
-                console.log("thisAddPStr type: " + typeof thisAddPStr);
+                //console.log("thisAddPStr val: " + thisAddPStr);
+                //console.log("thisAddPStr type: " + typeof thisAddPStr);
 
                 var $additionalPInputs = $(thisIdInputs);
 
@@ -762,51 +733,51 @@
                 //console.log("Existing"+addFormObj.existing);
                 //console.log($('#'+this.id +' .prevCheck input:radio:checked').val());
 
-                renameKey(addFormObj, "addPSurName" + thisAddPStr, "addPSurName");
-                renameKey(addFormObj, "addPName" + thisAddPStr, "addPName");
+                renameKey(addFormObj, "addPSurName" + thisAddPStr, "Surname");
+                renameKey(addFormObj, "addPName" + thisAddPStr, "Name");
                 renameKey(addFormObj, "addPRadioGenderCheck" + thisAddPStr, "addPRadioGenderCheck");
-                renameKey(addFormObj, "addPCareTakerSel" + thisAddPStr, "addPCareTakerSel");
-                renameKey(addFormObj, "addPAgeCheck" + thisAddPStr, "addPAgeCheck");
-                renameKey(addFormObj, "addPfhName" + thisAddPStr, "addPfhName");
-                renameKey(addFormObj, "addPCallingCode" + thisAddPStr, "addPCallingCode");
-                renameKey(addFormObj, "addPTelephone" + thisAddPStr, "addPTelephone");
-                renameKey(addFormObj, "alternateCountryCode" + thisAddPStr, "alternateCountryCode");
-                renameKey(addFormObj, "alternateNum" + thisAddPStr, "alternateNum");
-                renameKey(addFormObj, "whatsappCountryCode" + thisAddPStr, "whatsappCountryCode");
-                renameKey(addFormObj, "whatsappNum" + thisAddPStr, "whatsappNum");
-                renameKey(addFormObj, "addPEmail" + thisAddPStr, "addPEmail");
+                renameKey(addFormObj, "addPCareTakerSel" + thisAddPStr, "Relation");
+                renameKey(addFormObj, "addPAgeCheck" + thisAddPStr, "Age");
+                renameKey(addFormObj, "addPfhName" + thisAddPStr, "RalationFullName");
+                renameKey(addFormObj, "addPCallingCode" + thisAddPStr, "PrimaryCountryID");
+                renameKey(addFormObj, "addPTelephone" + thisAddPStr, "PrimaryPhoneNumber");
+                renameKey(addFormObj, "alternateCountryCode" + thisAddPStr, "AlternateCountryID");
+                renameKey(addFormObj, "alternateNum" + thisAddPStr, "AlternatePhoneNumber");
+                renameKey(addFormObj, "whatsappCountryCode" + thisAddPStr, "WhatsAppCountryCode");
+                renameKey(addFormObj, "whatsappNum" + thisAddPStr, "WhatsAppPhoneNumber");
+                renameKey(addFormObj, "addPEmail" + thisAddPStr, "EmailID");
                 //renameKey(addFormObj, "existing" + thisAddPStr, 'existing');
 
 
                 //Additional Participant Relation selection
-                if (addFormObj.addPCareTakerSel == null) {
+                if (addFormObj.Relation == null) {
                     $("#" + this.id + " .addPCareTakerSelError").show();
                     readyToSubmit = false;
                 }
 
                 //Check for country code Alternate Number
-                if (addFormObj.addPTelephone.length > 0 && addFormObj.addPCallingCode == null) {
+                if (addFormObj.PrimaryPhoneNumber.length > 0 && addFormObj.PrimaryCountryID == null) {
                     $("#" + this.id + " .mobileCountryCodeError").show();
                     readyToSubmit = false;
                 }
                 //Check for country code Alternate Number
-                if (addFormObj.alternateNum.length > 0 && addFormObj.alternateCountryCode == null) {
+                if (addFormObj.AlternatePhoneNumber.length > 0 && addFormObj.AlternateCountryID == null) {
                     $("#" + this.id + " .alternateCountryCodeError").show();
                     readyToSubmit = false;
                 }
                 //Check for country code WhatsApp Number
-                if (addFormObj.whatsappNum.length > 0 && addFormObj.whatsappCountryCode == null) {
+                if (addFormObj.WhatsAppPhoneNumber.length > 0 && addFormObj.WhatsAppCountryCode == null) {
                     $("#" + this.id + " .whatsappCountryCodeError").show();
                     readyToSubmit = false;
                 }
 
-                console.log("addFormObj: " + JSON.stringify(addFormObj));
+               // console.log("Additiona Participant Obj: " + JSON.stringify(addFormObj));
 
                 var existingCheck = "existing" + thisAddPStr;
                 delete addFormObj[existingCheck];
                 delete addFormObj['addPRadioGenderCheck'];
 
-                console.log("addFormObj removed existing123: " + JSON.stringify(addFormObj));
+                //console.log("addFormObj removed existing123: " + JSON.stringify(addFormObj));
 
                 // code added by Panigrahi
                 //isDuplicate = validateDuplicates(addFormObj.addPSurName, addFormObj.addPName, addFormObj.addPTelephone);
@@ -817,9 +788,17 @@
                 }
                 // code ended by Panigrahi 
 
-                completeData.push(addFormObj);
+                renameKey(addFormObj, "addPRadioSexCheck", "Gender");
+                renameKey(addFormObj, "existing", "PreviouslyAttended");
+
+                //completeData.push(addFormObj);
+                addPArrayObj.push(addFormObj);
+                console.log("AddP Array Obj"+JSON.stringify(addPArrayObj));
+                
 
             });
+
+            completeData.push(addPArrayObj);
 
             //console.log(formObj.lname);
             console.log("completeData: " + JSON.stringify(completeData));
@@ -902,39 +881,6 @@
             //mobDeskLayoutApply();
         });
 
-
-        /*Country selection
-        $('select#countrySelection').on('change', function () {
-            spDetails.country = this.value;
-            if (spDetails.country != "India") {
-                $(".otherthanIndia").show();
-                $(".forIndia").hide();
-            }
-            else if (spDetails.country == "India") {
-                $(".otherthanIndia").hide();
-                $(".forIndia").show();
-            }
-    
-            if (spDetails.country == "India") {
-                $("#pin").attr("pattern", "\\d*");
-                $("#pin").attr("maxlength", "6");
-            } else if (spDetails.country == "USA") {
-                $("#pin").attr("pattern", "\\d*");
-                $("#pin").attr("maxlength", "5");
-            } else if (spDetails.country == "Australia"){
-                $("#pin").attr("pattern", "\\d*");
-                $("#pin").attr("maxlength", "4");
-            } else {
-                $("#pin").attr("pattern", "*");
-                $("#pin").attr("maxlength", "10");
-                //Making sure max length is updated for Countries other than India USA Australia - This will help Germany and other coutnries 
-                $("#mobile").attr("maxlength", "15");
-                $("#alternateNum").attr("maxlength", "15");
-                $("#whatsappNum").attr("maxlength", "15");
-            }
-            google.script.run.withSuccessHandler(updateCode).getCallingCode(spDetails.country);
-        });*/
-
         //State selection
         $('select#stateSelection').on('change', function () {
             //console.log("Staee Selection spDetails.country: "+spDetails.country);
@@ -1002,13 +948,14 @@
 
 
         function appendAreaOptions(data) {
-            debugger;
-            var arrayOfLocailities = data.results[data.query.codes[0]];
+            arrayOfLocailities = data.results[data.query.codes[0]];
             $.each(arrayOfLocailities, function (i, value) {
                 console.log("i:" + i + "value:" + value.city);
-                $('#areaSelection').append($('<option>').text(value.city).attr('value', value.city));
+                $('#areaSelection').append($('<option>').text(value.city).attr('value', i));
             });
         }
+
+        
         /*API Get Call*/
         function getServiceCall(serviceUrl) {
             $.ajax({
@@ -1028,9 +975,7 @@
         var locationAPIPath = "/api/v1/search";
         var finalURL = locationAPIDomain + locationAPIPath + "?apikey=" + apiKey;
         var responseData = '{"query":{"codes":["500018"],"country":"in"},"results":{"500018":[{"postal_code":"500018","country_code":"IN","latitude":"17.45230000","longitude":"78.43240000","city":"Vivekananda Nagar Colony","state":"Telangana","state_code":"40","province":"Hyderabad","province_code":"536"},{"postal_code":"500018","country_code":"IN","latitude":"17.38980000","longitude":"78.46990000","city":"Erragadda","state":"Telangana","state_code":"40","province":"Hyderabad","province_code":"536"},{"postal_code":"500018","country_code":"IN","latitude":"17.45230000","longitude":"78.43240000","city":"Sanathnagar I E","state":"Telangana","state_code":"40","province":"Hyderabad","province_code":"536"},{"postal_code":"500018","country_code":"IN","latitude":"17.45230000","longitude":"78.43240000","city":"Fathenagar Colony","state":"Telangana","state_code":"40","province":"K.V.Rangareddy","province_code":"537"},{"postal_code":"500018","country_code":"IN","latitude":"17.45230000","longitude":"78.43240000","city":"Bharat Nagar Colony","state":"Telangana","state_code":"40","province":"K.V.Rangareddy","province_code":"537"},{"postal_code":"500018","country_code":"IN","latitude":"17.45230000","longitude":"78.43240000","city":"Swarajyanagar","state":"Telangana","state_code":"40","province":"K.V.Rangareddy","province_code":"537"},{"postal_code":"500018","country_code":"IN","latitude":"17.45230000","longitude":"78.43240000","city":"Moosapet","state":"Telangana","state_code":"40","province":"K.V.Rangareddy","province_code":"537"}]}}';
-        
         appendAreaOptions(JSON.parse(responseData));
-        
         /*on blur function for Postcal Code*/
         function initiateServiceCall(country, postalCode) {
             if (country != "null" && postalCode != "") {
@@ -1041,6 +986,12 @@
                 console.log("ERRORR");
             }
         }
+
+        //Select options onchange
+        $('select#areaSelection').on('change', function () {
+            console.log("areaSelection"+JSON.stringify(arrayOfLocailities[this.value]));
+
+        });
 
     </script>
 </body>
