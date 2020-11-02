@@ -15,6 +15,18 @@
 
     <style>
         /*Commonstyle*/
+        .mBtm20 {
+            margin-bottom: 20px;
+        }
+
+        .bRight2Lite {
+            border-right: 2px solid #d4d4d4;
+        }
+
+        .fLeft {
+            float: left;
+        }
+
         .fRight {
             float: right;
         }
@@ -39,7 +51,7 @@
             color: #000;
         }
 
-        .rsvpMainSection {
+        .loginSection {
             margin: 20px 0;
             border: 2px solid #d4d4d4;
             padding: 20px 0;
@@ -173,6 +185,11 @@
         .thankyouNote {
             background-color: #7cdd7c !important;
         }
+
+        /*All Buttons sections*/
+        .allButtons button {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 
@@ -237,110 +254,124 @@
 
         <br />
 
-        <div class="rsvpSection">
-            <h1>EVENT RSVP Form</h1>
-            <img class="card-img-top SSSGVSImg"
-                src="https://srisrisriguruviswasphoorthi.org/gallery/Celebrations/Birthday%20Celebrations%202015/3638.jpg"
-                alt="SriSriSri Guru Viswa Sphoorthi">
+        <div class="col-sm-12 loginSection fLeft">
 
-            <div class="col-sm-12 rsvpMainSection">
-
-                <form id="rsvpForm" class="col-md-6 col-sm-12">
-
+            <div class="col-md-6 col-sm-12 fLeft bRight2Lite">
+                <h1>Login Section</h1>
+                <form id="rsvpForm needs-validation" novalidate>
                     <div class="form-group">
-                        <label for="familyname">Member Id: </label>
-                        <input type="text" class="form-control" name="famName" id="familyname"
+                        <label for="memberId">Member Id: </label>
+                        <input type="text" class="form-control" name="MEMBERID" id="memberId"
                             placeholder="Enter Member Id" required>
-                        <div class="invalid-feedback">Please enter your surname or family name. <br> మీ ఇంటి పేరు
-                            వ్రాయగలరు.
+                        <div class="invalid-feedback">
+                            Please enter your Member Id (సభ్యుడు ఐడి వ్రాయగలరు).
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="pin">Enter a PIN :</label>
-                        <input type="password" name="pin" class="form-control" id="pin" required>
+                        <input type="password" placeholder="Enter PIN" name="pin" class="form-control" id="pin"
+                            required>
                         <div class="invalid-feedback">Please enter a PIN.</div>
                     </div>
                 </form>
 
                 <div class="results col-sm-12">
-                    <button type="submit" class="btn btn-outline-primary col-sm-4">Submit the above selection</button>
+                    <button type="submit" id="login" class="btn btn-primary col-sm-4">Login</button>
+                    <button type="button" class="btn btn-link col-sm-4">Forgot PIN?</button>
                 </div>
-<br/>
-                <div class="registrationSection col-md-5 col-sm-12">
+            </div>
+
+            <div class="col-md-6 col-sm-12 fLeft">
+                <h2>Registration Section</h2>
+                <div class="registrationSection">
                     <p>If it is your first time registering with us, please use the below registration link.</p>
                     <a href="#">Member/Event Registration</a>
-
                 </div>
+            </div>
+        </div>
+        <hr class="clearBoth" />
 
-                <hr />
+        <div class="allButtons col-sm-12 clearBoth">
+            <button type="submit" class="btn btn-info col-sm-4">Event Registration (RSVP)</button>
+            <button type="submit" class="btn btn-primary col-sm-4">Event Attendance</button>
+            <button type="submit" class="btn btn-info col-sm-4">Add More Participants</button>
+            <button type="submit" class="btn btn-primary col-sm-4">Change your PIN</button>
+            <button type="submit" class="btn btn-info col-sm-4">Edit Personal Details</button>
+            <button type="submit" class="btn btn-primary col-sm-4">View the Event Details/Event Registration</button>
+        </div>
 
-                <div class="results">
-                    <table class="resultsTable table table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col" colspan="2">#</th>
-                                <th scope="col">First Name</th>
-                                <th scope="col">Last Name</th>
-                                <th scope="col">Phone Number</th>
-                                <th scope="col">Host Location</th>
-                                <th scope="col">Update the Details</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td><input type="checkbox" class="form-check-input" id="exampleCheck1"></td>
-                                <td>Name1</td>
-                                <td>Surname1</td>
-                                <td>12312312345</td>
-                                <td>
-                                    <select name="hostLocationSelection" id="hostLocationSelection"
-                                        class="custom-select" required>
-                                        <option value="null" disabled selected>Choose an Option</option>
-                                        <option value="HL200001">India</option>
-                                        <option value="HL200002">USA</option>
-                                    </select>
-                                </td>
-                                <td><button type="button" class="btn btn-secondary">Update this row</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td><input type="checkbox" class="form-check-input" id="exampleCheck1"></td>
-                                <td>Name2</td>
-                                <td>Surname2</td>
-                                <td>12312312345</td>
-                                <td>
-                                    <select name="hostLocationSelection" id="hostLocationSelection"
-                                        class="custom-select" required>
-                                        <option value="null" disabled selected>Choose an Option</option>
-                                        <option value="HL200001">India</option>
-                                        <option value="HL200002">USA</option>
-                                    </select>
-                                </td>
-                                <td><button type="button" class="btn btn-secondary">Update this row</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td><input type="checkbox" class="form-check-input" id="exampleCheck1"></td>
-                                <td>Name3</td>
-                                <td>Surname3</td>
-                                <td>12312312345</td>
-                                <td>
-                                    <select name="hostLocationSelection" id="hostLocationSelection"
-                                        class="custom-select" required>
-                                        <option value="null" disabled selected>Choose an Option</option>
-                                        <option value="HL200001">India</option>
-                                        <option value="HL200002">USA</option>
-                                    </select>
-                                </td>
-                                <td><button type="button" class="btn btn-secondary">Update this row</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
+        <hr class="clearBoth" />
 
-                    <div class="results col-sm-12">
-                        <button type="submit" class="btn btn-primary col-sm-4">Submit the above selection</button>
-                    </div>
+        <div class="rsvpSection">
+            <h2>EVENT RSVP Form</h2>
+            <img class="card-img-top SSSGVSImg"
+                src="https://srisrisriguruviswasphoorthi.org/gallery/Celebrations/Birthday%20Celebrations%202015/3638.jpg"
+                alt="SriSriSri Guru Viswa Sphoorthi">
+
+            <hr class="clearBoth" />
+
+            <div class="results mBtm20">
+                <table class="resultsTable table table-striped table-responsive">
+                    <thead>
+                        <tr>
+                            <th scope="col" colspan="2">#</th>
+                            <th scope="col">Full Name</th>
+                            <th scope="col">Phone Number</th>
+                            <th scope="col">Host Location</th>
+                            <th scope="col">Update the Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td><input type="checkbox" class="form-check-input" id="exampleCheck1"></td>
+                            <td>Full Name1</td>
+                            <td>12312312345</td>
+                            <td>
+                                <select name="hostLocationSelection" id="hostLocationSelection" class="custom-select"
+                                    required>
+                                    <option value="null" disabled selected>Choose an Option</option>
+                                    <option value="HL200001">India</option>
+                                    <option value="HL200002">USA</option>
+                                </select>
+                            </td>
+                            <td><a href="#">Edit</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td><input type="checkbox" class="form-check-input" id="exampleCheck1"></td>
+                            <td>Full Name2</td>
+                            <td>12312312345</td>
+                            <td>
+                                <select name="hostLocationSelection" id="hostLocationSelection" class="custom-select"
+                                    required>
+                                    <option value="null" disabled selected>Choose an Option</option>
+                                    <option value="HL200001">India</option>
+                                    <option value="HL200002">USA</option>
+                                </select>
+                            </td>
+                            <td><a href="#">Edit</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td><input type="checkbox" class="form-check-input" id="exampleCheck1"></td>
+                            <td>Full Name3</td>
+                            <td>12312312345</td>
+                            <td>
+                                <select name="hostLocationSelection" id="hostLocationSelection" class="custom-select"
+                                    required>
+                                    <option value="null" disabled selected>Choose an Option</option>
+                                    <option value="HL200001">India</option>
+                                    <option value="HL200002">USA</option>
+                                </select>
+                            </td>
+                            <td><a href="#">Edit</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="results col-sm-12">
+                    <button type="submit" class="btn btn-primary col-sm-4">Submit Details</button>
                 </div>
             </div>
 
@@ -356,15 +387,39 @@
 
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS-->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
+    <script>
+
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
 
 
+        $("#login").click(function () {
+            $("#rsvpForm.class-was-validated").addClass("was-validated");
+        });
+    </script>
 </body>
 
 </html>
