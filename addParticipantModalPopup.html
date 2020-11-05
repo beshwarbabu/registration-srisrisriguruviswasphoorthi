@@ -175,7 +175,10 @@
         .thankyouNote {
             background-color: #7cdd7c !important;
         }
-        #addParticpantForm .modal-dialog{max-width: 945px;}
+
+        #addParticpantForm .modal-dialog {
+            max-width: 945px;
+        }
     </style>
 </head>
 
@@ -184,8 +187,9 @@
     <div class="mainContainer container">
         <!--Header Start-->
         <div class="header">
-            <img class="card-img-top SSSGVSImg" src="https://acceptance.srisrisriguruviswasphoorthi.org/images/header.jpg" alt="SriSriSri Guru Viswa Sphoorthi"
-                width="945">
+            <img class="card-img-top SSSGVSImg"
+                src="https://acceptance.srisrisriguruviswasphoorthi.org/images/header.jpg"
+                alt="SriSriSri Guru Viswa Sphoorthi" width="945">
             <!--Navigation Menu Start-->
             <nav class="navbar navbar-expand-lg navbar-light headerNavigation">
 
@@ -244,10 +248,11 @@
         <div class="addParticpantDiv" id="addParticipant">
             <div class="popUpAddP">
                 <button id="popUpAddP" type="button" name="Add Participant Popup"
-                    class="btn btn-primary col-sm-12 mTop20" data-toggle="modal" data-target="#addParticpantForm">Click to open Add Participant Modal</button>
+                    class="btn btn-primary col-sm-12 mTop20" data-toggle="modal" data-target="#addParticpantForm">Click
+                    to open Add Participant Modal</button>
             </div>
-            <div class="modal fade" id="addParticpantForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+            <div class="modal fade" id="addParticpantForm" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -258,23 +263,18 @@
                         </div>
                         <div class="modal-body">
                             <form class="addParticpant boxForm needs-validation class-was-validated"
-                                >
-                                <section class='additionalPartcipants class-was-validated' id='additionalP'>
-                                    <!-- <div class='addPHeading'>
-                                        <div class='levelAdditionalParticipants'>Additional Participants</div>
-                                        <div class=' removeSection'>Remove this participant</div>
-                                    </div> -->
+                                id='additionalPForm'>
+                                <section class='additionalPartcipants class-was-validated'>
                                     <div class='form-row'>
                                         <div class='form-group col-md-6 col-sm-12'><label
                                                 for='addFamilyName'>Surname/Family name (ఇంటి
-                                                పేరు) *</label><input type='text' class='form-control'
-                                                name='addPSurName' id='addFamilyName' placeholder='Enter Surname'
-                                                required>
+                                                పేరు) *</label><input type='text' class='form-control' name='Surname'
+                                                id='addFamilyName' placeholder='Enter Surname' required>
                                             <div class='invalid-feedback'>Please enter your surname or family name.
                                             </div>
                                         </div>
                                         <div class='form-group col-md-6 col-sm-12'><label for='addPName'>Name (పేరు)
-                                                *</label><input type='text' class='form-control' name='addPName'
+                                                *</label><input type='text' class='form-control' name='Name'
                                                 id='addName' placeholder='Enter Name' required>
                                             <div class='invalid-feedback'>Please enter your name.</div>
                                         </div>
@@ -282,16 +282,16 @@
                                     <div class='form-row'>
                                         <div class='form-group form-check addPRadioGenderCheck col-md-6 col-sm-12'>
                                             <label for='addPRadioGenderCheck'>Gender * </label><br /><label
-                                                class='radio-inline'><input type='radio' name='addPRadioGenderCheck'
-                                                    value='Male' required><span>Male</span></label><label
-                                                class='radio-inline'><input type='radio' name='addPRadioGenderCheck'
-                                                    value='Female' required><span>Female</span></label>
+                                                class='radio-inline'><input type='radio' name='Gender' value='Male'
+                                                    required><span>Male</span></label><label class='radio-inline'><input
+                                                    type='radio' name='Gender' value='Female'
+                                                    required><span>Female</span></label>
                                             <div class='invalid-feedback'>Please select an option.</div>
                                         </div>
                                         <div class='form-group col-md-6 col-sm-12'><label for='addPAgeCheck'>Age (వయసు)
-                                                *</label><input name='addPAgeCheck' id='addPAgeCheck' type='text'
-                                                pattern='\\d*' class='form-control' placeholder='Enter Age' min='0'
-                                                maxlength='3' required>
+                                                *</label><input name='Age' id='addPAgeCheck' type='text' pattern='\d*'
+                                                class='form-control' placeholder='Enter Age' min='0' maxlength='3'
+                                                required>
                                             <div class='invalid-feedback'>Please enter your age.</div>
                                         </div>
                                     </div>
@@ -299,15 +299,15 @@
                                             for='addPCareTakerSel'>Father/Mother/Husband 's Full
                                             Name (తండ్రి / తల్లి / భర్త పూర్తి పేరు) *</label>
                                         <div class='input-group mb-3'>
-                                            <div class='input-group-prepend mobileW100Perc'><select
-                                                    name='addPCareTakerSel' id='addPCareTakerSel' class='custom-select'
+                                            <div class='input-group-prepend mobileW100Perc'><select name='Relation'
+                                                    id='addPCareTakerSel' class='custom-select'
                                                     required='Plese select an option'>
                                                     <option value='' disabled='' selected=''>Choose Option</option>
                                                     <option value='daughterOf'>D/o</option>
                                                     <option value='sonOf'>S/o</option>
                                                     <option value='wifeOf'>W/o</option>
                                                 </select></div><input type='text' class='form-control'
-                                                aria-label='Text input with dropdown button' name='addPfhName'
+                                                aria-label='Text input with dropdown button' name='RalationFullName'
                                                 id='addPCareTakerName' placeholder='Enter Name' required>
                                             <div class='invalid-feedback addPCareTakerSelError'>Please select an option.
                                                 <br>దయచేసి ఒక
@@ -322,10 +322,15 @@
                                                 for='addp_calling_code'>Mobile
                                                 (మొబైల్) *</label>
                                             <div class='input-group mb-3'>
-                                                <div class='input-group-prepend w25perc'><select name='addPCallingCode'
-                                                        id='addp_calling_code' class='custom-select optional'> </select>
-                                                </div><input id='addp_icon_telephone' name='addPTelephone'
-                                                    pattern='\\d*' maxlength='15' type='text' minlength='5'
+                                                <div class='input-group-prepend w25perc'>
+                                                    <select name='PrimaryCountryID' id='addp_calling_code'
+                                                        class='custom-select optional'>
+                                                        <option value="" disabled="" selected="">Choose Option</option>
+                                                        <option value="in">India</option>
+                                                        <option value="us">USA</option>
+                                                    </select>
+                                                </div><input id='addp_icon_telephone' name='PrimaryPhoneNumber'
+                                                    pattern='\d*' maxlength='15' type='text' minlength='5'
                                                     class='form-control' aria-label='Number input with dropdown button'
                                                     placeholder='Enter Mobile Number' required>
                                                 <div class='invalid-feedback mobileCountryCodeError'>Please select
@@ -339,10 +344,14 @@
                                                 Phone Number (ఇతర ఫోన్ నెంబర్)</label>
                                             <div class='input-group mb-3'>
                                                 <div class='input-group-prepend w25perc'> <select
-                                                        name='alternateCountryCode' id='alternateCountryCode'
-                                                        class='custom-select optional'> </select></div> <input
-                                                    name='alternateNum' id='alternateNum' pattern='\\d*' maxlength='15'
-                                                    minlength='5' type='text' class='form-control optional'
+                                                        name='AlternateCountryID' id='alternateCountryCode'
+                                                        class='custom-select optional'>
+                                                        <option value="" disabled="" selected="">Choose Option</option>
+                                                        <option value="in">India</option>
+                                                        <option value="us">USA</option>
+                                                    </select></div> <input name='AlternatePhoneNumber' id='alternateNum'
+                                                    pattern='\d*' maxlength='15' minlength='5' type='text'
+                                                    class='form-control optional'
                                                     aria-label='Number input with dropdown button'
                                                     placeholder='Enter Alternate Number'>
                                                 <div class='invalid-feedback alternateCountryCodeError'>Please select
@@ -358,11 +367,15 @@
                                                 for='whatsappNum'>WhatsApp
                                                 Number (వాట్సాప్ నెంబర్)</label>
                                             <div class='input-group mb-3'>
-                                                <div class='input-group-prepend w25perc'> <select
-                                                        name='whatsappCountryCode' id='whatsappCountryCode'
-                                                        class='custom-select optional'> </select></div> <input
-                                                    name='whatsappNum' id='whatsappNum' pattern='\\d*' maxlength='15'
-                                                    minlength='5' type='text' class='form-control optional'
+                                                <div class='input-group-prepend w25perc'>
+                                                    <select name='WhatsAppCountryCode' id='whatsappCountryCode'
+                                                        class='custom-select optional'>
+                                                        <option value="" disabled="" selected="">Choose Option</option>
+                                                        <option value="in">India</option>
+                                                        <option value="us">USA</option>
+                                                    </select></div> <input name='WhatsAppPhoneNumber' id='whatsappNum'
+                                                    pattern='\d*' maxlength='15' minlength='5' type='text'
+                                                    class='form-control optional'
                                                     aria-label='Number input with dropdown button'
                                                     placeholder='Enter WhatsApp Number'>
                                                 <div class='invalid-feedback whatsappCountryCodeError'>Please select
@@ -372,17 +385,19 @@
                                             </div>
                                         </div>
                                         <div class='form-group col-md-6 col-sm-12'><label for='addp_icon_mail'>E-Mail
-                                                (ఈ-మెయిల్)</label><input id='addp_icon_mail' name='addPEmail'
-                                                type='email' class='form-control optional'
-                                                placeholder='email@example.com'></div>
+                                                (ఈ-మెయిల్)</label><input id='addp_icon_mail' name='EmailID' type='email'
+                                                class='form-control optional' placeholder='email@example.com'></div>
                                     </div>
-                                    <div class='form-group form-check prevCheck'>
+                                    <div class='form-group form-check existingCheck'>
                                         <div>Have you attended Guruji's programs earlier? *<br>ఇంతకుముందు మీరు
                                             గురువుగారి కార్యక్రమాల్లో
-                                            పాల్గొన్నారా?<br></div><label class='radio-inline'><input type='radio'
-                                                name='existing' value='Yes'><span value='Yes'>Yes</span></label><label
-                                            class='radio-inline'><input type='radio' name='existing' value='No'><span
-                                                value='No'>No</span></label>
+                                            పాల్గొన్నారా?<br>
+                                        </div>
+                                        <label class='radio-inline'><input type='radio' name='PreviouslyAttended'
+                                                value='Yes'><span value='Yes'>Yes</span></label>
+                                        <label class='radio-inline'><input type='radio' name='PreviouslyAttended'
+                                                value='No'><span value='No'>No</span>
+                                        </label>
                                         <div class='invalid-feedback'>Please select an option.</div>
                                     </div>
                                 </section>
@@ -391,7 +406,7 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button id="updateParticipant" type="submit" name="action"
-                    class="btn btn-primary col-sm-12 mTop20">Update Details</button>
+                                class="btn btn-primary col-sm-12 mTop20">Update Details</button>
                         </div>
                     </div>
                 </div>
@@ -410,9 +425,15 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
     <script>
-
-
-
+        $("#updateParticipant").click(function () {
+            var addPFormObj = {};
+            // get all the inputs into an array.
+            var $inputs = $('#additionalPForm :input');
+            $inputs.each(function () { addPFormObj[this.name] = $(this).val(); });
+            addPFormObj.Gender = $('#additionalPForm .addPRadioGenderCheck input:radio:checked').val();
+            addPFormObj.PreviouslyAttended = $('#additionalPForm .existingCheck input:radio:checked').val();
+            console.log(JSON.stringify(addPFormObj));
+        });
     </script>
 </body>
 
