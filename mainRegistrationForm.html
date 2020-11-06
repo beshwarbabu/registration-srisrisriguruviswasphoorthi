@@ -15,6 +15,11 @@
 
     <style>
         /*Commonstyle*/
+        .required:after {
+            content: " *";
+            color: red;
+        }
+
         .textCenter {
             text-align: center;
         }
@@ -183,8 +188,9 @@
     <div class="mainContainer container">
         <!--Header Start-->
         <div class="header">
-            <img class="card-img-top SSSGVSImg" src="https://srisrisriguruviswasphoorthi.org/images/header.jpg"
-                alt="SriSriSri Guru Viswa Sphoorthi" width="892" height="133">
+            <img class="card-img-top SSSGVSImg"
+                src="https://acceptance.srisrisriguruviswasphoorthi.org/images/header.jpg"
+                alt="SriSriSri Guru Viswa Sphoorthi" width="945" height="315">
             <!--Navigation Menu Start-->
             <nav class="navbar navbar-expand-lg navbar-light headerNavigation">
 
@@ -244,11 +250,11 @@
             <form class="mainForm boxForm needs-validation class-was-validated" id="mainRegForm">
                 <!--Note - Info-->
                 <div class="alert alert-info font25" role="alert">Note:
-                    * Required
+                    <label class="required"></label> Required
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6 col-sm-12">
-                        <label for="familyname">Surname/Family name (ఇంటి పేరు) *</label>
+                        <label for="familyname" class="required">Surname/Family name (ఇంటి పేరు)</label>
                         <input type="text" class="form-control" name="famName" id="familyname"
                             placeholder="Enter Surname" required>
                         <div class="invalid-feedback">Please enter your surname or family name. <br> మీ ఇంటి పేరు
@@ -256,7 +262,7 @@
                         </div>
                     </div>
                     <div class="form-group col-md-6 col-sm-12">
-                        <label for="firstname">Name (పేరు) *</label>
+                        <label for="firstname" class="required">Name (పేరు)</label>
                         <input type="text" class="form-control" name="name" id="firstname" placeholder="Enter Name"
                             required>
                         <div class="invalid-feedback">Please enter your name.<br>మీ పేరు వ్రాయగలరు.</div>
@@ -266,7 +272,7 @@
 
                 <div class="form-row">
                     <div class="form-group form-check genderCheck col-sm-6">
-                        <label for="radioGenderCheck">Gender * </label><br />
+                        <label for="radioGenderCheck" class="required">Gender</label><br />
                         <label class="radio-inline"><input type="radio" name='radioGenderCheck' value="Male"
                                 required><span>Male</span></label>
                         <label class="radio-inline"><input type="radio" name='radioGenderCheck' value="Female"
@@ -274,7 +280,7 @@
                         <div class="invalid-feedback">Please select an option.</div>
                     </div>
                     <div class="form-group col-sm-6">
-                        <label for="firstname">Age (వయసు) *</label>
+                        <label for="firstname" class="required">Age (వయసు)</label>
                         <input name="ageCheck" id="mainAgeCheck" pattern="\d*" type="text" class="form-control"
                             placeholder="Enter Age" min="0" maxlength="3" required>
                         <div class="invalid-feedback">Please enter your Age. <br>మీ వయసు వ్రాయగలరు.</div>
@@ -284,8 +290,8 @@
 
 
                 <div class="form-group">
-                    <label for="fhSelection">Father/Mother/Husband 's Full Name (తండ్రి / తల్లి / భర్త పూర్తి
-                        పేరు) *</label>
+                    <label for="fhSelection" class="required">Father/Mother/Husband 's Full Name (తండ్రి / తల్లి / భర్త పూర్తి
+                        పేరు)</label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend w25perc">
                             <select name="fhSelection" id="fhSelection" class="custom-select" required="">
@@ -309,17 +315,17 @@
 
                 <div class="form-row">
                     <div class="form-group col-md-6 col-sm-12">
-                        <label for="countrySelection">Country (దేశం) *</label>
+                        <label for="countrySelection" class="required">Country (దేశం)</label>
                         <select name="country" id="countrySelection" class="custom-select other-check geoLocation"
                             onchange="dropdownCheck('countrySelection');" required>
-                            <option value="null" disabled selected>Choose Option</option>
+                            <option value="" disabled="" selected="">Choose Option</option>
                             <option value="in">India</option>
                             <option value="us">USA</option>
                         </select>
                         <div class="invalid-feedback">Please select a country.</div>
                     </div>
                     <div class="form-group col-md-6 col-sm-12">
-                        <label for="pin">Postal Code (పిన్ కోడ్) *</label>
+                        <label for="pin" class="required">Postal Code (పిన్ కోడ్)</label>
                         <input name="postal" id="pin" pattern="\d*" maxlength="6" minlength="6" type="text"
                             class="form-control" placeholder="Enter Pin" required
                             onblur="initiateServiceCall(document.getElementById('countrySelection').value,document.getElementById('pin').value)">
@@ -330,7 +336,7 @@
 
 
                 <div class="form-group ">
-                    <label for="areaSelection">Area (ప్రాంతం) *</label>
+                    <label for="areaSelection" class="required">Area (ప్రాంతం)</label>
                     <select name="area" id="areaSelection" class="custom-select other-check geoLocation" required>
                         <option value="0" disabled selected>Choose Option</option>
                         <option value="AREA1">AREA1</option>
@@ -341,7 +347,7 @@
 
                 <div class="form-row">
                     <div class="form-group col-md-6 col-sm-12">
-                        <label for="mobile">Mobile (మొబైల్) *</label>
+                        <label for="mobile" class="required">Mobile (మొబైల్)</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend w25perc">
                                 <input name="callingCode" id="calling_code" type="text" class="form-control" disabled>
@@ -402,9 +408,8 @@
 
                 <div class="form-row">
                     <div class="form-group form-check prevCheck">
-                        <div for="radioExistingCheck">Have you attended Guruji's programs earlier? *<br />ఇంతకుముందు
-                            మీరు
-                            గురువుగారి కార్యక్రమాల్లో పాల్గొన్నారా?<br /></div>
+                        <div for="radioExistingCheck" class="required">Have you attended Guruji's programs earlier? (ఇంతకుముందు
+                            మీరు గురువుగారి కార్యక్రమాల్లో పాల్గొన్నారా?)</div>
                         <label class="radio-inline"><input type="radio" name='existing' value="Yes" required><span
                                 value="Yes">Yes</span></label>
                         <label class="radio-inline"><input type="radio" name='existing' value="No" required><span
@@ -416,7 +421,7 @@
 
 
                 <div class="form-group">
-                    Security questions<br />
+                    <label class="required">Security questions :</label><br/>
 
                     <div class="alert alert-info font25" role="alert">Note:
                         This security question and answer would be used for accessing your form data in future.<br />
@@ -445,12 +450,12 @@
                     <div class='invalid-feedback'>Please select a question and enter answer for the same.</div>
                 </div>
                 <div class="form-group">
-                    <label for="pin">Enter a PIN * :</label>
+                    <label for="pin" class="required">Enter a PIN</label>
                     <input type="password" name="pin" class="form-control" id="pin" required>
                     <div class="invalid-feedback">Please enter a PIN.</div>
                 </div>
                 <div class="form-group">
-                    <label for="comment">Comments (మీ సలహాలు) :</label>
+                    <label for="comment">Comments (మీ సలహాలు)</label>
                     <textarea name="comments" class="form-control" rows="2" id="comment"></textarea>
                 </div>
             </form>
@@ -497,20 +502,10 @@
                     </div>
                 </div>
             </div><!-- End of form group-->
-
         </div><!-- End of Thank You Note -->
-
-
-
-
-
     </div>
 
-
-    <!-- jQuery first, then Popper.js, then Bootstrap JS 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>-->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
@@ -518,11 +513,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
-
     <script>
-
-        var additionPHTML = "<section class='additionalPartcipants class-was-validated' id='additionalP'><div class='addPHeading'><div class='levelAdditionalParticipants  '>Additional Participants</div><div class='  removeSection'>Remove this participant</div></div><div class='form-row'><div class='form-group col-md-6 col-sm-12'><label for='addFamilyName'>Surname/Family name (ఇంటి పేరు) *</label><input type='text' class='form-control' name='addPSurName' id='addFamilyName' placeholder='Enter Surname' required><div class='invalid-feedback'>Please enter your surname or family name.</div></div><div class='form-group col-md-6 col-sm-12'><label for='addPName'>Name (పేరు) *</label><input type='text' class='form-control' name='addPName' id='addName' placeholder='Enter Name' required><div class='invalid-feedback'>Please enter your name.</div></div></div><div class='form-row'><div class='form-group form-check addPRadioGenderCheck col-md-6 col-sm-12'><label for='addPRadioGenderCheck'>Gender * </label><br /><label class='radio-inline'><input type='radio' name='addPRadioGenderCheck' value='Male' required><span>Male</span></label><label class='radio-inline'><input type='radio' name='addPRadioGenderCheck' value='Female' required><span>Female</span></label><div class='invalid-feedback'>Please select an option.</div></div><div class='form-group col-md-6 col-sm-12'><label for='addPAgeCheck'>Age (వయసు) *</label><input name='addPAgeCheck' id='addPAgeCheck' type='text' pattern='\\d*' class='form-control' placeholder='Enter Age' min='0' maxlength='3' required><div class='invalid-feedback'>Please enter your age.</div></div></div><div class='form-group addPCareTaker'><label for='addPCareTakerSel'>Father/Mother/Husband 's Full Name (తండ్రి / తల్లి / భర్త పూర్తి పేరు) *</label><div class='input-group mb-3'><div class='input-group-prepend mobileW100Perc'><select name='addPCareTakerSel' id='addPCareTakerSel' class='custom-select' required='Plese select an option'><option value='' disabled='' selected=''>Choose Option</option><option value='daughterOf'>D/o</option><option value='sonOf'>S/o</option><option value='wifeOf'>W/o</option> </select></div><input type='text' class='form-control' aria-label='Text input with dropdown button' name='addPfhName' id='addPCareTakerName' placeholder='Enter Name' required><div class='invalid-feedback addPCareTakerSelError'>Please select an option. <br>దయచేసి ఒక ఎంపికను ఎంచుకోండి</div><div class='invalid-feedback'>Please enter your father/mother/husband name.<br>మీ తండ్రి / తల్లి /భర్త పేరు వ్రాయగలరు.</div></div></div><div class='form-row'><div class='form-group mobileCodeNum col-md-6 col-sm-12'><label for='addp_calling_code'>Mobile (మొబైల్) *</label><div class='input-group mb-3'><div class='input-group-prepend w25perc'><select name='addPCallingCode' id='addp_calling_code' class='custom-select optional'> </select></div><input id='addp_icon_telephone' name='addPTelephone' pattern='\\d*' maxlength='15' type='text' minlength='5' class='form-control' aria-label='Number input with dropdown button' placeholder='Enter Mobile Number' required><div class='invalid-feedback mobileCountryCodeError'>Please select country code for the above number.</div><div class='invalid-feedback'>Please enter your mobile number.</div></div></div><div class='form-group alternateCodeNum col-md-6 col-sm-12'> <label for='alternateNum'>Alternate Phone Number (ఇతర ఫోన్ నెంబర్)</label><div class='input-group mb-3'><div class='input-group-prepend w25perc'> <select name='alternateCountryCode' id='alternateCountryCode' class='custom-select optional'> </select></div> <input name='alternateNum' id='alternateNum' pattern='\\d*' maxlength='15' minlength='5' type='text' class='form-control optional' aria-label='Number input with dropdown button' placeholder='Enter Alternate Number'><div class='invalid-feedback alternateCountryCodeError'>Please select country code for the above number.</div><div class='invalid-feedback'>Please enter your alternate mobile number.</div></div></div></div><div class='form-row'><div class='form-group whatsappCodeNum col-md-6 col-sm-12'> <label for='whatsappNum'>WhatsApp Number (వాట్సాప్ నెంబర్)</label><div class='input-group mb-3'><div class='input-group-prepend w25perc'> <select name='whatsappCountryCode' id='whatsappCountryCode' class='custom-select optional'> </select></div> <input name='whatsappNum' id='whatsappNum' pattern='\\d*' maxlength='15' minlength='5' type='text' class='form-control optional' aria-label='Number input with dropdown button' placeholder='Enter WhatsApp Number'><div class='invalid-feedback whatsappCountryCodeError'>Please select country code for the above number.</div><div class='invalid-feedback'>Please enter your WhatsApp number.</div></div></div><div class='form-group col-md-6 col-sm-12'><label for='addp_icon_mail'>E-Mail (ఈ-మెయిల్)</label><input id='addp_icon_mail' name='addPEmail' type='email' class='form-control optional' placeholder='email@example.com'></div></div><div class='form-group form-check prevCheck'><div>Have you attended Guruji's programs earlier? *<br>ఇంతకుముందు మీరు గురువుగారి కార్యక్రమాల్లో పాల్గొన్నారా?<br></div><label class='radio-inline'><input type='radio' name='existing' value='Yes'><span value='Yes'>Yes</span></label><label class='radio-inline'><input type='radio' name='existing' value='No'><span value='No'>No</span></label><div class='invalid-feedback'>Please select an option.</div></div> </section>";
-
+        var additionPHTML = "<section class='additionalPartcipants class-was-validated' id='additionalP'><div class='addPHeading'><div class='levelAdditionalParticipants'>Additional Participants</div><div class='removeSection'>Remove this participant</div></div><div class='form-row'><div class='form-group col-md-6 col-sm-12'><label for='addFamilyName' class='required'>Surname/Family name (ఇంటి పేరు)</label><input type='text' class='form-control' name='addPSurName' id='addFamilyName' placeholder='Enter Surname' required><div class='invalid-feedback'>Please enter your surname or family name.</div></div><div class='form-group col-md-6 col-sm-12'><label for='addPName' class='required'>Name (పేరు)</label><input type='text' class='form-control' name='addPName' id='addName' placeholder='Enter Name' required><div class='invalid-feedback'>Please enter your name.</div></div></div><div class='form-row'><div class='form-group form-check addPRadioGenderCheck col-md-6 col-sm-12'><label for='addPRadioGenderCheck' class='required'>Gender</label><br /><label class='radio-inline'><input type='radio' name='addPRadioGenderCheck' value='Male' required><span>Male</span></label><label class='radio-inline'><input type='radio' name='addPRadioGenderCheck' value='Female' required><span>Female</span></label><div class='invalid-feedback'>Please select an option.</div></div><div class='form-group col-md-6 col-sm-12'><label for='addPAgeCheck' class='required'>Age (వయసు)</label><input name='addPAgeCheck' id='addPAgeCheck' type='text' pattern='\\d*' class='form-control' placeholder='Enter Age' min='0' maxlength='3' required><div class='invalid-feedback'>Please enter your age.</div></div></div><div class='form-group addPCareTaker'><label for='addPCareTakerSel' class='required'>Father/Mother/Husband 's Full Name (తండ్రి / తల్లి / భర్త పూర్తి పేరు)</label><div class='input-group mb-3'><div class='input-group-prepend mobileW100Perc'><select name='addPCareTakerSel' id='addPCareTakerSel' class='custom-select' required='Plese select an option'><option value='' disabled='' selected=''>Choose Option</option><option value='daughterOf'>D/o</option><option value='sonOf'>S/o</option><option value='wifeOf'>W/o</option> </select></div><input type='text' class='form-control' aria-label='Text input with dropdown button' name='addPfhName' id='addPCareTakerName' placeholder='Enter Name' required><div class='invalid-feedback addPCareTakerSelError'>Please select an option. <br>దయచేసి ఒక ఎంపికను ఎంచుకోండి</div><div class='invalid-feedback'>Please enter your father/mother/husband name.<br>మీ తండ్రి / తల్లి /భర్త పేరు వ్రాయగలరు.</div></div></div><div class='form-row'><div class='form-group mobileCodeNum col-md-6 col-sm-12'><label for='addp_calling_code' class='required'>Mobile (మొబైల్)</label><div class='input-group mb-3'><div class='input-group-prepend w25perc'><select name='addPCallingCode' id='addp_calling_code' class='custom-select optional'> </select></div><input id='addp_icon_telephone' name='addPTelephone' pattern='\\d*' maxlength='15' type='text' minlength='5' class='form-control' aria-label='Number input with dropdown button' placeholder='Enter Mobile Number' required><div class='invalid-feedback mobileCountryCodeError'>Please select country code for the above number.</div><div class='invalid-feedback'>Please enter your mobile number.</div></div></div><div class='form-group alternateCodeNum col-md-6 col-sm-12'> <label for='alternateNum'>Alternate Phone Number (ఇతర ఫోన్ నెంబర్)</label><div class='input-group mb-3'><div class='input-group-prepend w25perc'> <select name='alternateCountryCode' id='alternateCountryCode' class='custom-select optional'> </select></div> <input name='alternateNum' id='alternateNum' pattern='\\d*' maxlength='15' minlength='5' type='text' class='form-control optional' aria-label='Number input with dropdown button' placeholder='Enter Alternate Number'><div class='invalid-feedback alternateCountryCodeError'>Please select country code for the above number.</div><div class='invalid-feedback'>Please enter your alternate mobile number.</div></div></div></div><div class='form-row'><div class='form-group whatsappCodeNum col-md-6 col-sm-12'> <label for='whatsappNum'>WhatsApp Number (వాట్సాప్ నెంబర్)</label><div class='input-group mb-3'><div class='input-group-prepend w25perc'> <select name='whatsappCountryCode' id='whatsappCountryCode' class='custom-select optional'> </select></div> <input name='whatsappNum' id='whatsappNum' pattern='\\d*' maxlength='15' minlength='5' type='text' class='form-control optional' aria-label='Number input with dropdown button' placeholder='Enter WhatsApp Number'><div class='invalid-feedback whatsappCountryCodeError'>Please select country code for the above number.</div><div class='invalid-feedback'>Please enter your WhatsApp number.</div></div></div><div class='form-group col-md-6 col-sm-12'><label for='addp_icon_mail'>E-Mail (ఈ-మెయిల్)</label><input id='addp_icon_mail' name='addPEmail' type='email' class='form-control optional' placeholder='email@example.com'></div></div><div class='form-group form-check prevCheck'><div><label class='required'>Have you attended Guruji's programs earlier? (ఇంతకుముందు మీరు గురువుగారి కార్యక్రమాల్లో పాల్గొన్నారా?)</label></div><label class='radio-inline'><input type='radio' name='existing' value='Yes'><span value='Yes'>Yes</span></label><label class='radio-inline'><input type='radio' name='existing' value='No'><span value='No'>No</span></label><div class='invalid-feedback'>Please select an option.</div></div></section>";
         var countryNames = "{'status':'OK','status-code':200,'version':'1.0','total':251,'limit':100,'offset':0,'access':'public','data':{'DZ':{'country':'Algeria','region':'Africa'},'AO':{'country':'Angola','region':'Africa'},'BJ':{'country':'Benin','region':'Africa'},'BW':{'country':'Botswana','region':'Africa'},'BF':{'country':'Burkina Faso','region':'Africa'},'BI':{'country':'Burundi','region':'Africa'},'CV':{'country':'Cabo Verde','region':'Africa'},'CM':{'country':'Cameroon','region':'Africa'},'CF':{'country':'Central African Republic (the)','region':'Africa'},'TD':{'country':'Chad','region':'Africa'},'KM':{'country':'Comoros ','region':'Africa'},'CD':{'country':'Congo (the Democratic Republic of the)','region':'Africa'},'CG':{'country':'Congo (the)','region':'Africa'},'CI':{'country':'Côte d'Ivoire','region':'Africa'},'DJ':{'country':'Djibouti','region':'Africa'},'EG':{'country':'Egypt','region':'Africa'},'GQ':{'country':'Equatorial Guinea','region':'Africa'},'ER':{'country':'Eritrea','region':'Africa'},'ET':{'country':'Ethiopia','region':'Africa'},'GA':{'country':'Gabon','region':'Africa'},'GM':{'country':'Gambia ','region':'Africa'},'GH':{'country':'Ghana','region':'Africa'},'GN':{'country':'Guinea','region':'Africa'},'GW':{'country':'Guinea-Bissau','region':'Africa'},'KE':{'country':'Kenya','region':'Africa'},'LS':{'country':'Lesotho','region':'Africa'},'LR':{'country':'Liberia','region':'Africa'},'LY':{'country':'Libya','region':'Africa'},'MG':{'country':'Madagascar','region':'Africa'},'MW':{'country':'Malawi','region':'Africa'},'ML':{'country':'Mali','region':'Africa'},'MR':{'country':'Mauritania','region':'Africa'},'MU':{'country':'Mauritius','region':'Africa'},'YT':{'country':'Mayotte','region':'Africa'},'MA':{'country':'Morocco','region':'Africa'},'MZ':{'country':'Mozambique','region':'Africa'},'NA':{'country':'Namibia','region':'Africa'},'NE':{'country':'Niger (the)','region':'Africa'},'NG':{'country':'Nigeria','region':'Africa'},'RE':{'country':'Réunion','region':'Africa'},'RW':{'country':'Rwanda','region':'Africa'},'SH':{'country':'Saint Helena, Ascension and Tristan da Cunha','region':'Africa'},'ST':{'country':'Sao Tome and Principe','region':'Africa'},'SN':{'country':'Senegal','region':'Africa'},'SC':{'country':'Seychelles','region':'Africa'},'SL':{'country':'Sierra Leone','region':'Africa'},'SO':{'country':'Somalia','region':'Africa'},'ZA':{'country':'South Africa','region':'Africa'},'SS':{'country':'South Sudan','region':'Africa'},'SD':{'country':'Sudan ','region':'Africa'},'SZ':{'country':'Swaziland','region':'Africa'},'TZ':{'country':'Tanzania, United Republic of','region':'Africa'},'TG':{'country':'Togo','region':'Africa'},'TN':{'country':'Tunisia','region':'Africa'},'UG':{'country':'Uganda','region':'Africa'},'EH':{'country':'Western Sahara*','region':'Africa'},'ZM':{'country':'Zambia','region':'Africa'},'ZW':{'country':'Zimbabwe','region':'Africa'},'AQ':{'country':'Antarctica','region':'Antarctic'},'BV':{'country':'Bouvet Island','region':'Antarctic'},'TF':{'country':'French Southern Territories (the)','region':'Antarctic'},'HM':{'country':'Heard Island and McDonald Islands','region':'Antarctic'},'GS':{'country':'South Georgia and the South Sandwich Islands','region':'Antarctic'},'AF':{'country':'Afghanistan','region':'Asia'},'AM':{'country':'Armenia','region':'Asia'},'AZ':{'country':'Azerbaijan','region':'Asia'},'BD':{'country':'Bangladesh','region':'Asia'},'BT':{'country':'Bhutan','region':'Asia'},'IO':{'country':'British Indian Ocean Territory (the)','region':'Asia'},'BN':{'country':'Brunei Darussalam','region':'Asia'},'KH':{'country':'Cambodia','region':'Asia'},'CN':{'country':'China','region':'Asia'},'GE':{'country':'Georgia','region':'Asia'},'HK':{'country':'Hong Kong','region':'Asia'},'IN':{'country':'India','region':'Asia'},'ID':{'country':'Indonesia','region':'Asia'},'JP':{'country':'Japan','region':'Asia'},'KZ':{'country':'Kazakhstan','region':'Asia'},'KP':{'country':'Korea (the Democratic People's Republic of)','region':'Asia'},'KR':{'country':'Korea (the Republic of)','region':'Asia'},'KG':{'country':'Kyrgyzstan','region':'Asia'},'LA':{'country':'Lao People's Democratic Republic (the)','region':'Asia'},'MO':{'country':'Macao','region':'Asia'},'MY':{'country':'Malaysia','region':'Asia'},'MV':{'country':'Maldives','region':'Asia'},'MN':{'country':'Mongolia','region':'Asia'},'MM':{'country':'Myanmar','region':'Asia'},'NP':{'country':'Nepal','region':'Asia'},'PK':{'country':'Pakistan','region':'Asia'},'PH':{'country':'Philippines (the)','region':'Asia'},'SG':{'country':'Singapore','region':'Asia'},'LK':{'country':'Sri Lanka','region':'Asia'},'TW':{'country':'Taiwan (Province of China)','region':'Asia'},'TJ':{'country':'Tajikistan','region':'Asia'},'TH':{'country':'Thailand','region':'Asia'},'TL':{'country':'Timor-Leste','region':'Asia'},'TM':{'country':'Turkmenistan','region':'Asia'},'UZ':{'country':'Uzbekistan','region':'Asia'},'VN':{'country':'Vietnam','region':'Asia'},'BZ':{'country':'Belize','region':'Central America'}}}"
         var spDetails = {};
         var spUserLocation = {};
@@ -535,7 +527,6 @@
 
         var DuplicateNames = [];
         var isDuplicate = false;
-
 
         function makeDropDown(data, levelFilter, i, id, j) {
             const filteredArray = data.filter(r => r[i] === levelFilter);
@@ -635,7 +626,6 @@
             if ($(".invalid-feedback").is(":visible")) {
                 readyToSubmit = false;
             }
-            debugger;
             var genderCheck = $('#mainRegForm .genderCheck input:radio:checked').val();
             console.log("radio Gender: " + genderCheck);
             console.log(genderCheck === "Male" || genderCheck === "Female");
