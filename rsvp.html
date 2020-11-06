@@ -255,22 +255,21 @@
         <br />
 
         <div class="col-sm-12 loginSection fLeft">
-
             <div class="col-md-6 col-sm-12 fLeft bRight2Lite">
                 <h1>Login Section</h1>
-                <form id="rsvpForm needs-validation" novalidate>
+                <form id="rsvpForm" class="needs-validation class-was-validated" novalidate>
                     <div class="form-group">
                         <label for="memberId">Member Id: </label>
                         <input type="text" class="form-control" name="MEMBERID" id="memberId"
-                            placeholder="Enter Member Id" required>
+                            placeholder="Enter Member Id" minlength="10" maxlength="10" required>
                         <div class="invalid-feedback">
                             Please enter your Member Id (సభ్యుడు ఐడి వ్రాయగలరు).
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="pin">Enter a PIN :</label>
-                        <input type="password" placeholder="Enter PIN" name="pin" class="form-control" id="pin"
-                            required>
+                        <input type="password" minlength="6" placeholder="Enter PIN" name="pin" class="form-control"
+                            id="pin" required>
                         <div class="invalid-feedback">Please enter a PIN.</div>
                     </div>
                 </form>
@@ -371,7 +370,9 @@
                 </table>
 
                 <div class="results col-sm-12">
-                    <button type="submit" class="btn btn-primary col-sm-4">Submit Details</button>
+                    <button type="submit" class="btn btn-primary col-sm-4 mBtm20">Submit Details</button>
+
+                    <button type="submit" class="btn btn-info col-sm-4 mBtm20">Add More Participants</button>
                 </div>
             </div>
 
@@ -396,27 +397,15 @@
         crossorigin="anonymous"></script>
     <script>
 
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (function () {
-            'use strict';
-            window.addEventListener('load', function () {
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                var forms = document.getElementsByClassName('needs-validation');
-                // Loop over them and prevent submission
-                var validation = Array.prototype.filter.call(forms, function (form) {
-                    form.addEventListener('submit', function (event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                        form.classList.add('was-validated');
-                    }, false);
-                });
-            }, false);
-        })();
+        // On blur validation listener for form elements
+        $(document).on('focusout', '.needs-validation input', function () {
+            // check element validity and change class
+            $(this).removeClass('is-valid is-invalid').addClass(this.checkValidity() ? 'is-valid' : 'is-invalid');
+        });
 
-
+        //Validation on click of login button
         $("#login").click(function () {
+            //Updating the class for validation
             $("#rsvpForm.class-was-validated").addClass("was-validated");
         });
     </script>
