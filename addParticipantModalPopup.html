@@ -425,7 +425,16 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
     <script>
+
+        // On blur validation listener for form elements
+        $(document).on('focusout', '.needs-validation input', function () {
+            // check element validity and change class
+            $(this).removeClass('is-valid is-invalid').addClass(this.checkValidity() ? 'is-valid' : 'is-invalid');
+        });
+
         $("#updateParticipant").click(function () {
+            //Update the class for validation
+            $(".class-was-validated").addClass("was-validated");
             var addPFormObj = {};
             // get all the inputs into an array.
             var $inputs = $('#additionalPForm :input');
@@ -434,6 +443,9 @@
             addPFormObj.PreviouslyAttended = $('#additionalPForm .existingCheck input:radio:checked').val();
             console.log(JSON.stringify(addPFormObj));
         });
+
+
+
     </script>
 </body>
 
