@@ -15,6 +15,24 @@
 
     <style>
         /*Commonstyle*/
+        .success{
+            color: #fff;
+            background-color: green;
+        }
+        .required:after {
+            content: " *";
+            color: red;
+        }
+
+        .info-feedback {
+            color: #000;
+            background-color: #d4d4d4;
+        }
+
+        .error {
+            color: red;
+        }
+
         .mBtm20 {
             margin-bottom: 20px;
         }
@@ -255,6 +273,43 @@
 
         <br />
 
+        <!--Start - Password assistance-->
+        <div class="passwordAssistance">
+            <div class="col-md-12 col-sm-12">
+                <h1>Password Assistance Section</h1>
+                <form id="passwordAssistanceForm" class="needs-validation class-was-validated" novalidate>
+                    <div class="form-group">
+                        <label for="oldPassword" class="required">Old PIN : </label>
+                        <input type="text" class="form-control" name="OldPassword" id="oldPassword"
+                            placeholder="Old Password" minlength="6" required>
+                        <div class="invalid-feedback">
+                            Please fill the above input with correct details.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="newPin" class="required">New PIN :</label>
+                        <input type="password" minlength="6" placeholder="Enter PIN" name="NewPin" class="form-control"
+                            id="pin" required>
+                        <div class="invalid-feedback">Please enter a PIN</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="newPin" class="required">Confirm New PIN :</label>
+                        <input type="password" minlength="6" placeholder="Confirm New PIN" name="NewPin"
+                            class="form-control" id="pin" required>
+                        <div class="invalid-feedback">Confirm PIN</div>
+                    </div>
+                </form>
+
+                <div class="results col-sm-12">
+                    <button type="botton" id="confirmPINBtn" class="btn btn-primary col-sm-4">Update PIN</button>
+                </div>
+            </div>
+        </div>
+        <!--End - Password assistance-->
+
+        <br />
+        <p class="clearBoth">&nbsp;</p>
+
         <!--Subwidget Start-->
         <!--Subwidget Styles Start-->
         <style>
@@ -382,77 +437,75 @@
 
             <hr class="clearBoth" />
 
-            <div class="results mBtm20">
-                <table class="resultsTable table table-striped table-responsive">
+            <form id="rsvpResultsForm" class="results mBtm20 needs-validation class-was-validated">
+                <table id="rsvpResultsTable" class="resultsTable table table-striped table-bordered table-responsive">
                     <thead>
                         <tr>
                             <th scope="col" colspan="2">#</th>
                             <th scope="col">Full Name</th>
                             <th scope="col">Phone Number</th>
                             <th scope="col">Host Location</th>
-                            <th scope="col">Update the Details</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr class="devoteeRSVP">
                             <th scope="row">1</th>
-                            <td><input type="checkbox" class="form-check-input" id="exampleCheck1"></td>
-                            <td>Full Name1</td>
-                            <td>12312312345</td>
-                            <td>
-                                <select name="hostLocationSelection" id="hostLocationSelection" class="custom-select"
-                                    required>
-                                    <option value="null" disabled selected>Choose an Option</option>
+                            <td><input type="checkbox" class="formCheckInput" id="exampleCheck1"></td>
+                            <td class="fullName">Full Name1</td>
+                            <td class="phNumber">12312312345</td>
+                            <td class="hllocation">
+                                <select name="hostLocationSelection" class="custom-select hostLocationSelection">
+                                    <option value="null" disabled="" selected="">Choose an Option</option>
                                     <option value="HL200001">India</option>
                                     <option value="HL200002">USA</option>
                                 </select>
+                                <div class="info-feedback" style="display:none">Please select a location</div>
                             </td>
-                            <td><a href="#">Edit</a></td>
                         </tr>
-                        <tr>
+                        <tr class="devoteeRSVP">
                             <th scope="row">2</th>
-                            <td><input type="checkbox" class="form-check-input" id="exampleCheck1"></td>
-                            <td>Full Name2</td>
-                            <td>12312312345</td>
-                            <td>
-                                <select name="hostLocationSelection" id="hostLocationSelection" class="custom-select"
-                                    required>
-                                    <option value="null" disabled selected>Choose an Option</option>
+                            <td><input type="checkbox" class="formCheckInput" id="exampleCheck1"></td>
+                            <td class="fullName">Full Name2</td>
+                            <td class="phNumber">12312312345</td>
+                            <td class="hllocation">
+                                <select name="hostLocationSelection" class="custom-select hostLocationSelection">
+                                    <option value="null" disabled="" selected="">Choose an Option</option>
                                     <option value="HL200001">India</option>
                                     <option value="HL200002">USA</option>
                                 </select>
+                                <div class="info-feedback" style="display:none">Please select a location</div>
                             </td>
-                            <td><a href="#">Edit</a></td>
                         </tr>
-                        <tr>
+                        <tr class="devoteeRSVP">
                             <th scope="row">3</th>
-                            <td><input type="checkbox" class="form-check-input" id="exampleCheck1"></td>
-                            <td>Full Name3</td>
-                            <td>12312312345</td>
-                            <td>
-                                <select name="hostLocationSelection" id="hostLocationSelection" class="custom-select"
-                                    required>
-                                    <option value="null" disabled selected>Choose an Option</option>
+                            <td><input type="checkbox" class="formCheckInput" id="exampleCheck1"></td>
+                            <td class="fullName">Full Name3</td>
+                            <td class="phNumber">12312312345</td>
+                            <td class="hllocation">
+                                <select name="hostLocationSelection" class="custom-select hostLocationSelection">
+                                    <option value="null" disabled="" selected="">Choose an Option</option>
                                     <option value="HL200001">India</option>
                                     <option value="HL200002">USA</option>
                                 </select>
+                                <div class="info-feedback" style="display:none">Please select a location</div>
                             </td>
-                            <td><a href="#">Edit</a></td>
                         </tr>
                     </tbody>
                 </table>
 
                 <div class="results col-sm-12">
-                    <button type="submit" class="btn btn-primary col-sm-4 mBtm20">Submit Details</button>
-
-                    <button type="submit" class="btn btn-info col-sm-4 mBtm20">Add More Participants</button>
+                    <p class="error mBtm20" style="display: none;">Have you missed selecting a checkbox? Please select a
+                        checkbox for registering to this event.</p>
+                    <button type="button" class="btn btn-primary col-sm-3 mBtm20" id="submitRSVP">Submit
+                        Details</button>
+                    <button type="button" class="btn btn-info col-sm-3 mBtm20" id="addMoreParticipants">Add More
+                        Participants</button>
                 </div>
+            </form>
+            <div class="success" style="display:none">
+                Your response is captured!
             </div>
-
-
-
         </div>
-
     </div>
 
 
@@ -477,6 +530,64 @@
             //Updating the class for validation
             $("#rsvpForm.class-was-validated").addClass("was-validated");
         });
+
+        //Validate Password Assistance Section
+        $("#confirmPINBtn").click(function () {
+            $("#passwordAssistanceForm.class-was-validated").addClass("was-validated");
+        });
+
+        //Validate Password Assistance Section
+        $("#rsvpResultsTable").click(function () {
+            $("#passwordAssistanceForm.class-was-validated").addClass("was-validated");
+        });
+
+        //Start - RSVP Script
+        //RSVP CheckBox
+        $(".formCheckInput").click(function () {
+            console.log($(this).prop('checked'));
+            var parentsTR = $(this).parents("tr");
+            if ($(this).prop('checked')) {
+                parentsTR.addClass("selected");
+                parentsTR.find(".hllocation option:selected").val() == "null" ? parentsTR.find(".info-feedback").show() : parentsTR.find(".info-feedback").hide();
+            } else {
+                parentsTR.removeClass("selected");
+                parentsTR.find(".info-feedback").hide();
+            }
+        });
+
+
+        //Validate Submit RSVP
+        $("#submitRSVP").click(function () {
+            var rsvpObj = [];
+            //$("#rsvpResultsForm.class-was-validated").addClass("was-validated");
+
+            console.log($(".devoteeRSVP.selected").length);
+
+            var selectedRows = $(".devoteeRSVP.selected");
+            selectedRows.length == 0 ? $(".results .error").show() : $(".results .error").hide();
+
+            $.each(selectedRows, function (i, value) {
+                var eachRow = {};
+                eachRow["FULLNAME"] = $(this).find(".fullName").text();
+                eachRow["PHONENUMBER"] = $(this).find(".phNumber").text();
+                eachRow["HOSTLOCATION"] = $(this).find(".hllocation option:selected").val();
+                console.log("hostLocation: " + eachRow.HOSTLOCATION);
+                eachRow.HOSTLOCATION == "null" ? $(this).find(".info-feedback").addClass("error") : $(this).find(".error").hide();
+                console.log("eachRow: " + JSON.stringify(eachRow));
+                rsvpObj.push(eachRow);
+            });
+            var infoOrError = $(".info-feedback:visible").length + $(".error:visible").length;
+            if (infoOrError == 0){
+                $("#rsvpResultsForm").hide();
+                $(".success").show();
+            }
+            console.log("rsvpObj: " + JSON.stringify(rsvpObj));
+        });
+        
+        $('.hostLocationSelection').on('change', function () {
+            $(this).parent().find(".info-feedback").hide();
+        });
+        //End - RSVP Script
     </script>
 </body>
 
