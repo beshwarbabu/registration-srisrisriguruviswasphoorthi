@@ -112,6 +112,10 @@
             border: none !important;
         }
 
+        .headerNavigation .navbar-toggler {
+            background-color: #c81c0e;
+        }
+
 
         /* Form styles */
         label.radio-inline+label.radio-inline {
@@ -244,6 +248,47 @@
                 </div>
             </nav>
             <!--Navigation Menu End-->
+
+            <!-- Start of Authenticated Menu -->
+            <style>
+                .authMenu {
+                    background-image: linear-gradient(#04ecf0, #059dc0, #04ecf0);
+                }
+
+                .authMenu *{
+                    color: #fff;
+                }
+                .authMenu a:hover {
+                    font-weight: 700;
+                    color: #fff;
+                    cursor: pointer;
+                }
+
+                .authMenu ul li {
+                    border: 0;
+                    display: inline-block !important;
+                    /* border-left: 1px solid #a4a4a4; */
+                    padding: 0 10px;
+                    
+                }
+            </style>
+            <div class="authMenu">
+                <ul class="">
+                    <li class="">Welcome <strong>AAA (SK20123456)</strong></li>
+                    <li class=""><a href="#">Account PIN Change</a></li>
+                    <li class=""><a href="#">View/Edit Profile
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-person"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M12 1H4a1 1 0 0 0-1 1v10.755S4 11 8 11s5 1.755 5 1.755V2a1 1 0 0 0-1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z" />
+                                <path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- End of Authenticated Menu -->
+
         </div>
         <!--Header End-->
 
@@ -343,7 +388,7 @@
                 <div class="form-group ">
                     <label for="areaSelection" class="required">Area (ప్రాంతం)</label>
                     <select name="area" id="areaSelection" class="custom-select other-check geoLocation" required>
-                        <option value="0" disabled selected>Choose Option</option>
+                        <option value="" disabled="" selected="">Choose Option</option>
                         <option value="AREA1">AREA1</option>
                         <option value="AREA2">AREA2</option>
                     </select>
