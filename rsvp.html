@@ -278,7 +278,6 @@
         <div class="passwordAssistance">
             <div class="col-md-12 col-sm-12">
                 <h1>Password Assistance Section</h1>
-
                 <form id="passwordAssistanceForm" class="needs-validation class-was-validated" novalidate>
                     <div class="form-group">
                         <label for="oldPassword" class="required">Old PIN : </label>
@@ -424,12 +423,25 @@
         <hr class="clearBoth" />
 
         <div class="allButtons col-sm-12 clearBoth">
-            <button type="submit" class="btn btn-info col-sm-4">Event Registration (RSVP)</button>
-            <button type="submit" class="btn btn-primary col-sm-4">Event Attendance</button>
-            <button type="submit" class="btn btn-info col-sm-4">Add More Participants</button>
-            <button type="submit" class="btn btn-primary col-sm-4">Change your PIN</button>
-            <button type="submit" class="btn btn-info col-sm-4">Edit Personal Details</button>
-            <button type="submit" class="btn btn-primary col-sm-4">View the Event Details/Event Registration</button>
+            <style>
+                .allButtons > div{border: 2px solid #d4d4d4; padding: 0; height: 250px;}
+                .allButtons > div > button, .allButtons > div > div {margin: 10px 20px;}
+                .heading {border-bottom: 2px solid #d4d4d4;}
+                .heading {border-bottom: 2px solid #d4d4d4;}
+            </style>
+            <div class="col-md-6 col-sm-12 fLeft">
+                <div class="heading">Event Important Links</div>
+                <button type="submit" class="btn btn-info col-sm-8">Event Registration (RSVP)</button>
+                <button type="submit" class="btn btn-primary col-sm-8">Event Attendance</button>
+                
+            </div>
+
+            <div class="col-md-6 col-sm-12 fLeft">
+                <div class="heading">Profile Important Links</div>
+                <button type="submit" class="btn btn-primary col-sm-8">Change your PIN</button>
+                <button type="submit" class="btn btn-info col-sm-8">Edit Personal Details</button>
+                <button type="submit" class="btn btn-info col-sm-8">Add Participants to Profile</button>
+            </div>
         </div>
 
         <hr class="clearBoth" />
@@ -549,7 +561,7 @@
                 $(".passwordAssistance .success").show();
                 $("#passwordAssistanceForm").hide();
                 $(".passwordAssistance .results").hide();
-                
+
             } else {
                 $(".passwordAssistance .success").hide();
                 $("#passwordAssistanceForm").show();
