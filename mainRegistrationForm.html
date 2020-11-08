@@ -15,9 +15,10 @@
 
     <style>
         /*Commonstyle*/
-        .w60px{
+        .w60px {
             width: 60px;
         }
+
         .required:after {
             content: " *";
             color: red;
@@ -193,7 +194,7 @@
         <div class="header">
             <img class="card-img-top SSSGVSImg"
                 src="https://acceptance.srisrisriguruviswasphoorthi.org/images/header.jpg"
-                alt="SriSriSri Guru Viswa Sphoorthi" width="945" height="315">
+                alt="SriSriSri Guru Viswa Sphoorthi" width="945" height="">
             <!--Navigation Menu Start-->
             <nav class="navbar navbar-expand-lg navbar-light headerNavigation">
 
@@ -293,7 +294,8 @@
 
 
                 <div class="form-group">
-                    <label for="fhSelection" class="required">Father/Mother/Husband 's Full Name (తండ్రి / తల్లి / భర్త పూర్తి
+                    <label for="fhSelection" class="required">Father/Mother/Husband 's Full Name (తండ్రి / తల్లి / భర్త
+                        పూర్తి
                         పేరు)</label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend w25perc">
@@ -411,7 +413,8 @@
 
                 <div class="form-row">
                     <div class="form-group form-check prevCheck">
-                        <div for="radioExistingCheck" class="required">Have you attended Guruji's programs earlier? (ఇంతకుముందు
+                        <div for="radioExistingCheck" class="required">Have you attended Guruji's programs earlier?
+                            (ఇంతకుముందు
                             మీరు గురువుగారి కార్యక్రమాల్లో పాల్గొన్నారా?)</div>
                         <label class="radio-inline"><input type="radio" name='existing' value="Yes" required><span
                                 value="Yes">Yes</span></label>
@@ -424,7 +427,7 @@
 
 
                 <div class="form-group">
-                    <label class="required">Security questions :</label><br/>
+                    <label class="required">Security questions :</label><br />
 
                     <div class="alert alert-info font25" role="alert">Note:
                         This security question and answer would be used for accessing your form data in future.<br />
@@ -506,7 +509,52 @@
                 </div>
             </div><!-- End of form group-->
         </div><!-- End of Thank You Note -->
+
+        <!-- Start of Footer -->
+        <style>
+            .mainFooter {
+                background-color: #fff;
+                text-align: center;
+                padding-top: 20px;
+                /* background-image: radial-gradient(#fff, #ffecaa); */
+            }
+
+            .mainFooter .copyRight {
+                text-align: center;
+                padding: 10px 0;
+                margin-bottom: 0;
+                color: #122620;
+            }
+
+            .mainFooter ul li {
+                border: 0;
+                display: inline-block !important;
+                border-left: 1px solid #a4a4a4;
+                padding: 0 10px;
+                cursor: pointer;
+            }
+
+            .mainFooter ul li:hover {
+                text-shadow: 2px 2px 5px #ffecaa;
+            }
+
+            .mainFooter ul li:first-child {
+                border: none;
+            }
+        </style>
+        <footer class="mainFooter">
+            <ul class="">
+                <li class=""><a href="#">Home</a></li>
+                <li class=""><a href="#">Photos</a></li>
+                <li class=""><a href="#">Videos</a></li>
+            </ul>
+            <p class="copyRight">&copy; Copyright 2020 www.srisrisriguruvishwasphoorthi.org. All rights reserved.</p>
+        </footer>
+        <!-- End of Footer -->
+
     </div>
+
+
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
