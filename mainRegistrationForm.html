@@ -15,6 +15,9 @@
 
     <style>
         /*Commonstyle*/
+        .w60px{
+            width: 60px;
+        }
         .required:after {
             content: " *";
             color: red;
@@ -349,7 +352,7 @@
                     <div class="form-group col-md-6 col-sm-12">
                         <label for="mobile" class="required">Mobile (మొబైల్)</label>
                         <div class="input-group mb-3">
-                            <div class="input-group-prepend w25perc">
+                            <div class="input-group-prepend w60px">
                                 <input name="callingCode" id="calling_code" type="text" class="form-control" disabled>
                             </div>
                             <input name="telNum" id="mobile" pattern="\d*" maxlength="10" minlength="10" type="text"
@@ -626,6 +629,7 @@
             if ($(".invalid-feedback").is(":visible")) {
                 readyToSubmit = false;
             }
+            debugger;
             var genderCheck = $('#mainRegForm .genderCheck input:radio:checked').val();
             console.log("radio Gender: " + genderCheck);
             console.log(genderCheck === "Male" || genderCheck === "Female");
