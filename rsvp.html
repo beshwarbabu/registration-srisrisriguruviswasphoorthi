@@ -15,10 +15,11 @@
 
     <style>
         /*Commonstyle*/
-        .success{
+        .success {
             color: #fff;
             background-color: green;
         }
+
         .required:after {
             content: " *";
             color: red;
@@ -277,6 +278,7 @@
         <div class="passwordAssistance">
             <div class="col-md-12 col-sm-12">
                 <h1>Password Assistance Section</h1>
+
                 <form id="passwordAssistanceForm" class="needs-validation class-was-validated" novalidate>
                     <div class="form-group">
                         <label for="oldPassword" class="required">Old PIN : </label>
@@ -294,7 +296,7 @@
                     </div>
                     <div class="form-group">
                         <label for="newPin" class="required">Confirm New PIN :</label>
-                        <input type="password" minlength="6" placeholder="Confirm New PIN" name="NewPin"
+                        <input type="password" minlength="6" placeholder="Confirm New PIN" name="ConfirmNewPin"
                             class="form-control" id="pin" required>
                         <div class="invalid-feedback">Confirm PIN</div>
                     </div>
@@ -303,6 +305,9 @@
                 <div class="results col-sm-12">
                     <button type="botton" id="confirmPINBtn" class="btn btn-primary col-sm-4">Update PIN</button>
                 </div>
+            </div>
+            <div class="success" style="display:none">
+                Your response is captured!
             </div>
         </div>
         <!--End - Password assistance-->
@@ -531,15 +536,32 @@
             $("#rsvpForm.class-was-validated").addClass("was-validated");
         });
 
+        //Start of Password Assistance Script
         //Validate Password Assistance Section
         $("#confirmPINBtn").click(function () {
+            var pswdObj = {};
+            var pswdInputs = $("#passwordAssistanceForm :input");
             $("#passwordAssistanceForm.class-was-validated").addClass("was-validated");
+            pswdInputs.each(function () { pswdObj[this.name] = $(this).val(); });
+            console.log("pswdObj: " + JSON.stringify(pswdObj));
+
+            if ($("#passwordAssistanceForm .invalid-feedback:visible").length == 0) {
+                $(".passwordAssistance .success").show();
+                $("#passwordAssistanceForm").hide();
+                $(".passwordAssistance .results").hide();
+                
+            } else {
+                $(".passwordAssistance .success").hide();
+                $("#passwordAssistanceForm").show();
+                $(".passwordAssistance .results").show();
+            }
         });
 
         //Validate Password Assistance Section
         $("#rsvpResultsTable").click(function () {
             $("#passwordAssistanceForm.class-was-validated").addClass("was-validated");
         });
+        //End of Password Assistance Script
 
         //Start - RSVP Script
         //RSVP CheckBox
@@ -577,13 +599,13 @@
                 rsvpObj.push(eachRow);
             });
             var infoOrError = $(".info-feedback:visible").length + $(".error:visible").length;
-            if (infoOrError == 0){
+            if (infoOrError == 0) {
                 $("#rsvpResultsForm").hide();
                 $(".success").show();
             }
             console.log("rsvpObj: " + JSON.stringify(rsvpObj));
         });
-        
+
         $('.hostLocationSelection').on('change', function () {
             $(this).parent().find(".info-feedback").hide();
         });
