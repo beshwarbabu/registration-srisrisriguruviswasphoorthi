@@ -209,10 +209,25 @@
         .allButtons button {
             margin-bottom: 20px;
         }
+
+        /*Back Button CSS*/
+        .backButton svg {
+            transform: rotate(180deg);
+        }
+
+        .backButton {
+            padding-bottom: 2px;
+        }
+
+        .fWt700 {
+            font-weight: 700;
+        }
     </style>
 </head>
 
 <body>
+
+
 
     <div class="mainContainer container">
         <!--Header Start-->
@@ -274,6 +289,16 @@
 
         <br />
 
+        <button type="button" class="btn btn-outline-primary backButton">
+            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-forward" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M9.502 5.513a.144.144 0 0 0-.202.134V6.65a.5.5 0 0 1-.5.5H2.5v2.9h6.3a.5.5 0 0 1 .5.5v1.003c0 .108.11.176.202.134l3.984-2.933a.51.51 0 0 1 .042-.028.147.147 0 0 0 0-.252.51.51 0 0 1-.042-.028L9.502 5.513zM8.3 5.647a1.144 1.144 0 0 1 1.767-.96l3.994 2.94a1.147 1.147 0 0 1 0 1.946l-3.994 2.94a1.144 1.144 0 0 1-1.767-.96v-.503H2a.5.5 0 0 1-.5-.5v-3.9a.5.5 0 0 1 .5-.5h6.3v-.503z">
+                </path>
+            </svg>
+            <label class="fWt700">Back</label>
+        </button>
+
         <!--Start - Password assistance-->
         <div class="passwordAssistance">
             <div class="col-md-12 col-sm-12">
@@ -301,7 +326,7 @@
                     </div>
                 </form>
 
-                <div class="results col-sm-12">
+                <div class="results">
                     <button type="botton" id="confirmPINBtn" class="btn btn-primary col-sm-4">Update PIN</button>
                 </div>
             </div>
@@ -318,7 +343,7 @@
         <!--Subwidget Styles Start-->
         <style>
             .subWidget {
-                border: 2px solid #d4d4d4;
+                border: 1px solid #d4d4d4;
                 padding: 0;
                 border-radius: 6px;
                 margin-bottom: 15px;
@@ -326,7 +351,7 @@
             }
 
             .subWidget p {
-                padding: 0 20px;
+                padding: 10px;
             }
 
             .subWidget .top {
@@ -335,10 +360,11 @@
                 font-weight: 700;
                 border-top-left-radius: 5px;
                 border-top-right-radius: 5px;
+                background-image: linear-gradient(#eeede7, #b9b7bd);
             }
 
             .subWidget .body {
-                min-height: 90px;
+                min-height: 180px;
             }
 
             .subWidget .bottom {
@@ -349,20 +375,25 @@
             .subWidget {
                 display: inline-block;
             }
+
+            .top p {
+                font-size: 18px !important;
+            }
         </style>
         <!--Subwidget Styles Start-->
-        <div class="subWidget col-xs-12 col-sm-6 col-md-3">
+        <div class="subWidget col-sm-12 col-md-4">
             <div class="top">
                 <p>Event</p>
             </div>
             <div class="body">
-                <p>Event brief Event brief Event brief Event brief Event brief Event brief Event brief Event brief</p>
+                <p>Event brief Event brief Event brief Event brief Event brief Event brief Event brief Event briefEvent
+                    brief Event brief Event brief Event brief Event brief Event brief Event brief Event brief</p>
             </div>
             <div class="bottom">
-                <button type="button" class="btn btn-primary">Register here</button>
+                <button type="button" class="btn btn-outline-primary">Register here</button>
             </div>
         </div>
-        <div class="subWidget col-sm-6 col-xs-12 col-md-3">
+        <div class="subWidget col-sm-12 col-md-4">
             <div class="top">
                 <p>Event</p>
             </div>
@@ -370,10 +401,10 @@
                 <p>Event brief Event brief Event brief Event brief Event brief Event brief Event brief Event brief</p>
             </div>
             <div class="bottom">
-                <button type="button" class="btn btn-primary">Register here</button>
+                <button type="button" class="btn btn-outline-primary">Register here</button>
             </div>
         </div>
-        <div class="subWidget col-sm-6 col-md-3 col-xs-12">
+        <div class="subWidget col-sm-12 col-md-4">
             <div class="top">
                 <p>Event</p>
             </div>
@@ -381,7 +412,7 @@
                 <p>Event brief Event brief Event brief Event brief Event brief Event brief Event brief Event brief</p>
             </div>
             <div class="bottom">
-                <button type="button" class="btn btn-primary">Register here</button>
+                <button type="button" class="btn btn-outline-primary">Register here</button>
             </div>
         </div>
         <!--Subwidget End-->
@@ -406,7 +437,7 @@
                     </div>
                 </form>
 
-                <div class="results col-sm-12">
+                <div class="results">
                     <button type="submit" id="login" class="btn btn-primary col-sm-4">Login</button>
                     <button type="button" class="btn btn-link col-sm-4">Forgot PIN?</button>
                 </div>
@@ -424,23 +455,32 @@
 
         <div class="allButtons col-sm-12 clearBoth">
             <style>
-                .allButtons > div{border: 2px solid #d4d4d4; padding: 0; height: 250px;}
-                .allButtons > div > button, .allButtons > div > div {margin: 10px 20px;}
-                .heading {border-bottom: 2px solid #d4d4d4;}
-                .heading {border-bottom: 2px solid #d4d4d4;}
+                .allButtons>div {
+                    border: 2px solid #d4d4d4;
+                    padding: 15px;
+                    height: 250px;
+                }
+
+                .heading {
+                    border-bottom: 2px solid #d4d4d4;
+                }
+
+                .mTop20 {
+                    margin-top: 20px;
+                }
             </style>
             <div class="col-md-6 col-sm-12 fLeft">
                 <div class="heading">Event Important Links</div>
-                <button type="submit" class="btn btn-info col-sm-8">Event Registration (RSVP)</button>
-                <button type="submit" class="btn btn-primary col-sm-8">Event Attendance</button>
-                
+                <button type="submit" class="btn btn-info col-sm-12 mTop20">Event Registration (RSVP)</button>
+                <button type="submit" class="btn btn-primary col-sm-12">Event Attendance</button>
+
             </div>
 
             <div class="col-md-6 col-sm-12 fLeft">
                 <div class="heading">Profile Important Links</div>
-                <button type="submit" class="btn btn-primary col-sm-8">Change your PIN</button>
-                <button type="submit" class="btn btn-info col-sm-8">Edit Personal Details</button>
-                <button type="submit" class="btn btn-info col-sm-8">Add Participants to Profile</button>
+                <button type="submit" class="btn btn-primary col-sm-12 mTop20">Change your PIN</button>
+                <button type="submit" class="btn btn-info col-sm-12">Edit Personal Details</button>
+                <button type="submit" class="btn btn-info col-sm-12">Add Participants to Profile</button>
             </div>
         </div>
 
