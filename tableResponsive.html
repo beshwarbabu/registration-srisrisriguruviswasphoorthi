@@ -1,0 +1,202 @@
+<!--Start - Responsive Table-->
+        <style>
+            .table {
+                border-collapse: collapse;
+                display: inline-table;
+            }
+
+            .tr {
+                display: table-row;
+            }
+
+            .th,
+            .td {
+                display: table-cell;
+                border: 1px solid #555;
+                padding: 3px 6px;
+            }
+
+            .th {
+                background-color: #ddd;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            .td {
+                text-align: left;
+            }
+
+            .my-table.show-thin {
+                display: block;
+            }
+
+            .show-thin .tr {
+                border-bottom: 1px solid black;
+                display: block;
+                margin-bottom: 2px;
+                padding-bottom: 2px;
+            }
+
+            /* .show-thin .td {
+        border: none;
+        display: block;
+        padding: 0;
+        text-align: left;
+    }
+
+    .show-thin .td:before {
+        content: attr(title) ':';
+        display: inline-block;
+        font-weight: bold;
+        padding-right: 5px;
+    } */
+
+            .show-thin .thin-hide {
+                display: none;
+            }
+
+            .show-thin .td {
+                border: none;
+                display: block;
+                padding: 0;
+                text-align: left;
+                border: 1px solid #d4d4d4;
+                border-bottom: 0;
+                padding-left: 7px;
+            }
+
+
+            .show-thin .td:before {
+                content: attr(title) ':';
+                display: inline-block;
+                font-weight: bold;
+                padding-right: 5px;
+                border-right: 1px solid #d4d4d4;
+                width: 200px;
+                padding: 5px;
+            }
+
+            @media only screen and (max-width: 767px) {
+                .show-thin .hostLocationSelection {
+                    width: 50%;
+                }
+            }
+
+            .my-table .info-feedback {
+                background-color: yellow;
+            }
+        </style>
+
+        <button onclick="toggle()">Toggle</button>
+        <hr />
+        <div class="my-table">
+            <div class="tr thin-hide">
+                <span class="th">S.No</span>
+                <span class="th">Full Name</span>
+                <span class="th">Phone Number</span>
+                <span class="th">Host Location</span>
+            </div>
+            <div class="tr devoteeRSVP">
+                <span class="td" title="S.No">1 <input type="checkbox" class="formCheckInput is-valid"
+                        id="exampleCheck1"></span>
+                <span class="td fullName" title="Full Name">Member-1</span>
+                <span class="td phNumber" title="Phone Number">12312312313123</span>
+                <span class="td hllocation" title="Host Location">
+                    <select name="hostLocationSelection" class="custom-select hostLocationSelection">
+                        <option value="null" disabled="" selected="">Choose an Option</option>
+                        <option value="HL200001">India</option>
+                        <option value="HL200002">USA</option>
+                    </select>
+                    <div class="info-feedback" style="display:none">Please select a location</div>
+                </span>
+            </div>
+            <div class="tr devoteeRSVP">
+                <span class="td" title="S.No">2 <input type="checkbox" class="formCheckInput is-valid"
+                        id="exampleCheck1"></span>
+                <span class="td fullName" title="Full Name">Member-2</span>
+                <span class="td phNumber" title="Phone Number">12312312313123</span>
+                <span class="td hllocation" title="Host Location">
+                    <select name="hostLocationSelection" class="custom-select hostLocationSelection">
+                        <option value="null" disabled="" selected="">Choose an Option</option>
+                        <option value="HL200001">India</option>
+                        <option value="HL200002">USA</option>
+                    </select>
+                    <div class="info-feedback" style="display:none">Please select a location</div>
+                </span>
+            </div>
+            <div class="tr devoteeRSVP">
+                <span class="td" title="S.No">3 <input type="checkbox" class="formCheckInput is-valid"
+                        id="exampleCheck1"></span>
+                <span class="td fullName" title="Full Name">Member-3</span>
+                <span class="td phNumber" title="Phone Number">12312312313123</span>
+                <span class="td hllocation" title="Host Location">
+                    <select name="hostLocationSelection" class="custom-select hostLocationSelection">
+                        <option value="null" disabled="" selected="">Choose an Option</option>
+                        <option value="HL200001">India</option>
+                        <option value="HL200002">USA</option>
+                    </select>
+                    <div class="info-feedback" style="display:none">Please select a location</div>
+                </span>
+            </div>
+        </div>
+
+        <button id="check">Check</button>
+
+        <script>
+
+            if (window.innerWidth <= 767) {
+                var table = document.querySelector('.my-table');
+                table.classList.toggle('show-thin');
+            }
+
+            function toggle() {
+                var table = document.querySelector('.my-table');
+                table.classList.toggle('show-thin');
+            }
+
+
+            //New RSVP CheckBox
+            $(".my-table .formCheckInput").click(function () {
+                debugger;
+                console.log($(this).prop('checked'));
+                var parentsTR = $(this).parents("div.tr");
+                debugger;
+                if ($(this).prop('checked')) {
+                    parentsTR.addClass("selected");
+                    parentsTR.find(".hllocation option:selected").val() == "null" ? parentsTR.find(".info-feedback").show() : parentsTR.find(".info-feedback").hide();
+                } else {
+                    parentsTR.removeClass("selected");
+                    parentsTR.find(".info-feedback").hide();
+                }
+            });
+
+                    //Validate Submit RSVP
+        // $("#submitRSVP").click(function () {
+            $("#check").click(function () {
+            var rsvpObj = [];
+            //$("#rsvpResultsForm.class-was-validated").addClass("was-validated");
+            debugger;
+            console.log($(".devoteeRSVP.selected").length);
+
+            var selectedRows = $(".devoteeRSVP.selected");
+            selectedRows.length == 0 ? $(".results .error").show() : $(".results .error").hide();
+
+            $.each(selectedRows, function (i, value) {
+                var eachRow = {};
+                eachRow["FULLNAME"] = $(this).find(".fullName").text();
+                eachRow["PHONENUMBER"] = $(this).find(".phNumber").text();
+                eachRow["HOSTLOCATION"] = $(this).find(".hllocation option:selected").val();
+                console.log("hostLocation: " + eachRow.HOSTLOCATION);
+                eachRow.HOSTLOCATION == "null" ? $(this).find(".info-feedback").addClass("error") : $(this).find(".error").hide();
+                console.log("eachRow: " + JSON.stringify(eachRow));
+                rsvpObj.push(eachRow);
+            });
+            var infoOrError = $(".info-feedback:visible").length + $(".error:visible").length;
+            if (infoOrError == 0) {
+                $("#rsvpResultsForm").hide();
+                $(".success").show();
+            }
+            console.log("rsvpObj: " + JSON.stringify(rsvpObj));
+        });
+        </script>
+        <!-- End - Responsive Table-->
